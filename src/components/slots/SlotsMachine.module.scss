@@ -1,0 +1,61 @@
+@import '../../styles/mixins';
+
+.container {
+  position: relative;
+  width: 430px;
+  height: 300px;
+}
+
+.base {
+  display: block;
+}
+
+.eyeLeft {
+  position: absolute;
+  left: 34px;
+  top: -18px;
+}
+
+.eyeRight {
+  position: absolute;
+  right: 34px;
+  top: -18px;
+}
+
+.smile {
+  position: absolute;
+  left: 50%;
+  top: 52px;
+  transform: translateX(-50%);
+}
+
+.emotionLeft {
+  position: absolute;
+  left: 48px;
+  top: 66px;
+}
+
+.emotionRight {
+  position: absolute;
+  right: 48px;
+  top: 66px;
+}
+
+.handLeft {
+  position: absolute;
+  left: 16px;
+  top: 170px;
+}
+
+.handRight {
+  position: absolute;
+  right: 16px;
+  top: 170px;
+}
+
+.foots {
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+}
