@@ -34,7 +34,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={`${bungee.variable} ${pocketMonk.variable} ${poetsenOne.variable}`}>
         <Header />
-        <main>{children}</main>
+        <main className="main">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>
