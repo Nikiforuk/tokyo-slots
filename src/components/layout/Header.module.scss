@@ -1,0 +1,41 @@
+@import '../../styles/variables';
+@import '../../styles/extends';
+@import '../../styles/mixins';
+
+.container {
+  @include flex($align: _, $justify: center);
+  @include size($w: 100%, $h: 105px);
+  position: relative;
+  overflow: visible;
+}
+
+.cloud {
+  position: absolute;
+  inset: 0;
+  background: url('../../assets/graphics/cloud-top.svg') repeat-x center bottom;
+  background-size: auto 105px;
+}
+
+.table {
+  position: absolute;
+  bottom: -40px;
+  transform: translate(-50%, 50%);
+  display: inline-block;
+
+  &_title {
+    @extend %pocket-monk-40;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-55%);
+    font-family: var(--font-pocket-monk);
+    @include text-stroke(3px, $black-dark);
+    paint-order: stroke fill;
+    text-shadow:
+      1px 0 0 $black-dark,
+      -3px 0 0 $black-dark,
+      0 3px 0 $black-dark,
+      0 -3px 0 $black-dark;
+  }
+}

@@ -1,3 +1,5 @@
+@import './variables';
+
 /* Pocket Monk */
 %pocket-monk-40 {
   font-family: $font-pocket-monk;
@@ -5,7 +7,7 @@
   font-style: normal;
   font-size: 40px;
   line-height: 106%;
-  letter-spacing: 3.5%;
+  letter-spacing: 0.035em;
   text-align: center;
   vertical-align: middle;
 }
@@ -16,7 +18,7 @@
   font-style: normal;
   font-size: 45px;
   line-height: 72%;
-  letter-spacing: 0%;
+  letter-spacing: 0em;
   text-align: center;
   vertical-align: middle;
 }
@@ -28,7 +30,7 @@
   font-style: normal;
   font-size: 14px;
   line-height: 100%;
-  letter-spacing: 11%;
+  letter-spacing: 0.11em;
   text-align: center;
 }
 
@@ -38,7 +40,7 @@
   font-style: normal;
   font-size: 20px;
   line-height: 100%;
-  letter-spacing: 5%;
+  letter-spacing: 0.05em;
   text-align: center;
   vertical-align: middle;
 }
@@ -49,7 +51,7 @@
   font-style: normal;
   font-size: 22px;
   line-height: 100%;
-  letter-spacing: 5%;
+  letter-spacing: 0.05em;
   text-align: center;
   vertical-align: middle;
 }
@@ -60,7 +62,7 @@
   font-style: normal;
   font-size: 25px;
   line-height: 22.5px;
-  letter-spacing: 0%;
+  letter-spacing: 0em;
   text-align: center;
   vertical-align: middle;
 }
@@ -71,7 +73,7 @@
   font-style: normal;
   font-size: 30px;
   line-height: 100%;
-  letter-spacing: 5%;
+  letter-spacing: 0.05em;
   text-align: right;
   vertical-align: middle;
 }
@@ -83,7 +85,7 @@
   font-style: normal;
   font-size: 55px;
   line-height: 72%;
-  letter-spacing: 0%;
+  letter-spacing: 0em;
   text-align: center;
   vertical-align: middle;
 }

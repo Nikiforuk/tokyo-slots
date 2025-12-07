@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Bungee, Poetsen_One } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.scss";
+import Header from "../components/layout/Header";
+import Footer from "../components/layout/Footer";
 
 const bungee = Bungee({
   variable: "--font-bungee",
@@ -31,7 +33,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={`${bungee.variable} ${pocketMonk.variable} ${poetsenOne.variable}`}>
-        {children}
+        <Header />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

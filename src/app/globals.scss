@@ -9,10 +9,16 @@ body {
 body {
   color: $blue-bright;
   background: $background;
-  font-family: $font-pocket-monk;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 105px);
 }
 
 * {
@@ -25,4 +31,3 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
