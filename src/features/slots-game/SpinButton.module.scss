@@ -10,22 +10,31 @@
   background: transparent;
   padding: 0;
   cursor: pointer;
-  margin-top: 75px;
+  margin-top: 50px;
 }
 
-.borders {
+.border1 {
+  position: absolute;
+  left: 50%;
+  top: -30px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.border2 {
   position: absolute;
   left: 50%;
   bottom: 0;
   transform: translateX(-50%);
   pointer-events: none;
-  z-index: 0;
+  z-index: 10;
 }
 
 .capsuleWrap {
   position: absolute;
-  left: 0;
-  top: -10px;
+  left: 5;
+  top: -30px;
   display: inline-block;
   z-index: 999;
 }

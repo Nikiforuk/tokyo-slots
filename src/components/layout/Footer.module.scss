@@ -1,0 +1,73 @@
+@import '../../styles/variables';
+@import '../../styles/extends';
+@import '../../styles/mixins';
+
+.container {
+  @include flex($align: center, $justify: center);
+  position: relative;
+}
+
+.table {
+  @include flex($align: center, $justify: center);
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: 410px;
+}
+
+.table_title {
+  @extend %poetsen-55;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.table {
+  @include flex($align: center, $justify: center);
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+
+  &_title {
+    @include text-stroke(10px, $black-dark);
+    @extend %poetsen-55;
+    position: absolute;
+    paint-order: stroke fill;
+    transform: translateX(-50%);
+    top: -20px;
+    color: $yellow-bright;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 100);
+  }
+
+  &_sum {
+    position: absolute;
+    @include text-stroke(2px, $black-dark);
+    @extend %bungee-30-right;
+    color: $white;
+    top: 50px;
+    right: 45%;
+    transform: translate(50%);
+  }
+
+  &_inputToken {
+    @include flex($align: center, $justify: center);
+    @include size($w: 24px, $h: 24px);
+    position: absolute;
+    left: 20%;
+    top: 51%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: $red-bright;
+    border: 4px solid $black-dark;
+    box-sizing: content-box;
+    color: $red-dark;
+    font-family: $font-bungee;
+    font-size: 14px;
+    box-shadow: 0 4px 4px $black-dark;
+  }
+}

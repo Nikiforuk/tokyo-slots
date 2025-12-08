@@ -15,7 +15,7 @@ export default function SlotsForm() {
         <AdjustButton text='+' />
         <AdjustInput id='bet' type='text' placeholder='99 999.99'   />
         <AdjustButton text='-' />
-      </div>
+      </div> 
       <div className={styles.spin}>
         <SpinButton />
       </div>

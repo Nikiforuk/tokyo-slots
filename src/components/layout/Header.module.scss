@@ -26,18 +26,14 @@
 
   &_title {
     @extend %pocket-monk-40;
+    font-family: var(--font-pocket-monk);
+    @include text-stroke(5px, $black-dark);
     position: absolute;
     left: 0;
     top: 50%;
     width: 100%;
     transform: translateY(-55%);
-    font-family: var(--font-pocket-monk);
-    @include text-stroke(3px, $black-dark);
     paint-order: stroke fill;
-    text-shadow:
-      1px 0 0 $black-dark,
-      -3px 0 0 $black-dark,
-      0 3px 0 $black-dark,
-      0 -3px 0 $black-dark;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   }
 }
