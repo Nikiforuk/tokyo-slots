@@ -8,13 +8,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('../../assets/images/umbrella.png');
-  background-color: rgba(165, 223, 247, 0.8);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100%;
+  background-color: rgba(186, 86, 43, 0.8);
   z-index: 1000;
 }
 
@@ -26,6 +20,10 @@
   bottom: 50px;
 }
 
+.table {
+  transform: scaleX(-1);
+}
+
 .title {
   @extend %pocket-monk-45;
   @include text-stroke(10px, $black-dark);
@@ -34,14 +32,13 @@
   top: 10;
   left: 40px;
   paint-order: stroke fill;
-  transform: rotate(-10deg);
+  transform: rotate(10deg);
   text-shadow: 0 8px 10px $black;
-}
+  color: $white;
 
-.happyFace {
-  position: absolute;
-  top: 0;
-  right: 20;
+  &_lose {
+    color: $red-crimson;
+  }
 }
 
 .sumWin {
@@ -51,5 +48,5 @@
   top: 57%;
   left: 30%;
   paint-order: stroke fill;
-  color: $dark-space;
+  color: $red-light;
 }

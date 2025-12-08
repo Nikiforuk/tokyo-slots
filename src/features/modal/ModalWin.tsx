@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import tableWin from '../../assets/graphics/table-modal.svg';
 import happyFace from '../../assets/graphics/happy-face.svg';
-import styles from './Modal.module.scss';
+import styles from './ModalWin.module.scss';
 import Token from '@/components/ui/Token';
 
-export default function Modal() {
+export default function ModalWin() {
   return (
     <div className={styles.overlay}>
       <div className={styles.container}>
