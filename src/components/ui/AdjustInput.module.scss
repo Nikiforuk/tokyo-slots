@@ -17,7 +17,7 @@
   background: $dusty-tape;
   color: $white;
   box-shadow: inset 0 5px 0 $smoked-taupe;
-  text-shadow: 0 4px 4px rgba(0, 0, 0, 1);
+  text-shadow: 0 4px 4px $black;
 }
 
 .input::placeholder {
@@ -32,5 +32,4 @@
   top: -5;
   border-radius: 16px;
   background: $iron-taupe;
-  z-index: -1;
 }

@@ -13,6 +13,7 @@
   background-position: bottom;
   background-size: contain;
   bottom: 0px;
+  z-index: 0;
 }
 
 .cloudWhiteBackground {
@@ -22,7 +23,7 @@
   background-size: contain;
   background-position: center;
   bottom: 0;
-  z-index: 10;
+  z-index: 499;
 }
 
 .cloudLeft {
@@ -32,6 +33,7 @@
   background-repeat: no-repeat;
   left: 0;
   bottom: 40px;
+  z-index: 1;
 }
 
 .cloudRight {
@@ -41,4 +43,5 @@
   background-repeat: no-repeat;
   right: 0;
   bottom: 40px;
+  z-index: 1;
 }

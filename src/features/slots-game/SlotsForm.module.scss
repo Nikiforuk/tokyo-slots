@@ -13,7 +13,7 @@
   paint-order: stroke fill;
   text-shadow: 0 5px 0 rgba(0, 0, 0, 0.1);
   color: $primary;
-  margin-bottom:  21px;
+  margin-bottom: 25px;
   z-index: 999;
 }
 
@@ -25,9 +25,8 @@
 
 .spin {
   @include flex($align: center, $justify: center);
+  @include size($w: 100%, $h: 277px);
   background: url('../../assets/images/tokiocity.png');
   background-position: center;
   bottom: 0;
-  height: 277px;
-  width: 100%;
 }

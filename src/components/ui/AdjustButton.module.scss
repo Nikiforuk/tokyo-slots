@@ -2,26 +2,34 @@
 @import '../../styles/extends';
 @import '../../styles/mixins';
 
-.button {
-  @extend %bungee-25;
-  @include size($w: 64px, $h: 62px);
-  border-radius: 16px;
-  background: $white-light;
+.base {
   position: relative;
-  border: 3px solid $black-dark;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border: none;
+  background: none;
+  padding: 0;
   cursor: pointer;
+  z-index: 999;
+
+  &_button {
+    position: relative;
+    @extend %bungee-25;
+    @include flex($align: center, $justify: center);
+    @include size($w: 64px, $h: 62px);
+    border-radius: 16px;
+    background: $white-light;
+    border: 3px solid $black-dark;
+    box-shadow: 0 4px 4px $black;
+  }
 
   &::after {
     @include size($w: 100%, $h: 100%);
     content: '';
     position: absolute;
     left: 0;
-    top: 0;
-    border-radius: inherit;
+    top: -5;
+    border-radius: 16px;
     background: $blue-dark;
     transform: translateY(10px);
     z-index: -1;
-    box-shadow: 0 8px 4px rgba(0, 0, 0, 0.08);
   }
 }

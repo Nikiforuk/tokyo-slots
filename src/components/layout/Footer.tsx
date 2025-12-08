@@ -10,7 +10,7 @@ export default function Footer() {
     <footer className={styles.container}>
       <div className={styles.table}>
         <FooterTitle />
-        <Image src={table} width={410} height={123} alt='table-image' />
+        <Image src={table} width={410} height={123} alt='table-graphics' />
         <FooterShine />
         <Token position='absolute' top='50%' left='20%' right='51%' />
         <p className={styles.table_sum}>999 999.99</p>
