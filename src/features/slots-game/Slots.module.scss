@@ -12,14 +12,13 @@
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: contain;
-  bottom: 100px;
+  bottom: 0px;
 }
 
 .cloudWhiteBackground {
-  @include size($w: 100%, $h: 300px);
+  @include size($w: 100%, $h: 252px);
   position: absolute;
   background: url('../../assets/images/cloud-2.png');
-  background-repeat: repeat-x;
   background-size: contain;
   background-position: center;
   bottom: 0;
@@ -30,6 +29,7 @@
   @include size($w: 482px, $h: 454px);
   position: absolute;
   background: url('../../assets/images/cloud-1.png');
+  background-repeat: no-repeat;
   left: 0;
   bottom: 40px;
 }
@@ -38,8 +38,7 @@
   @include size($w: 482px, $h: 454px);
   position: absolute;
   background: url('../../assets/images/cloud-3.png');
+  background-repeat: no-repeat;
   right: 0;
   bottom: 40px;
 }
-
-

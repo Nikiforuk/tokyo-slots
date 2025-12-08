@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import tableBackground from '../../assets/graphics/table-1.svg';
+
 import styles from './Header.module.scss';
 import CloudMotion from './animations/CloudMotion';
 import TableMotion from './animations/TableMotion';

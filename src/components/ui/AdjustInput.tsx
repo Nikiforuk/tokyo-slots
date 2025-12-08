@@ -1,4 +1,5 @@
 import styles from './AdjustInput.module.scss';
+import Token from './Token';
 
 interface AdjustInputProps {
   id?: string;
@@ -11,7 +12,7 @@ export default function AdjustInput({id, name, type, placeholder}: AdjustInputPr
   return (
     <div className={styles.wrapper}>
       <div className={styles.forwardShadow} />
-      <span className={styles.inputToken}>T</span>
+      <Token position='absolute' top='50%' left='18px' />
       <input
         id={id}
         name={name}

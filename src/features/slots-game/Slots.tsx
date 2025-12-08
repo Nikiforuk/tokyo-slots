@@ -1,10 +1,12 @@
 import styles from './Slots.module.scss';
 import SlotsForm from './SlotsForm';
 import SlotsMachine from './SlotsMachine';
+import Decorations from './Decorations';
 
 export default function Slots() {
   return (
     <div className={styles.container}>
+      <Decorations />
       <SlotsMachine />
       <SlotsForm />
       <div className={styles.clouGreenBackground} />

@@ -2,8 +2,8 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import styles from './SpinButton.module.scss';
-import border2 from '../../assets/graphics/spin-button/spin-border-1.svg';
-import border1 from '../../assets/graphics/spin-button/spin-border-2.svg';
+import border1 from '../../assets/graphics/spin-button/spin-border-1.svg';
+import border2 from '../../assets/graphics/spin-button/spin-border-2.svg';
 import capsule from '../../assets/graphics/spin-button/spin-capsule.svg';
 
 interface SpinButtonProps {
@@ -21,7 +21,7 @@ export default function SpinButton({ onClick }: SpinButtonProps) {
       aria-label="Spin"
     >
       <Image className={styles.border1} src={border1} alt="spin-base" width={240} height={160} />
-      <Image className={styles.border2} src={border2} alt="spin-base" width={250} height={160} />
+      <Image className={styles.border2} src={border2} alt="spin-base" width={260} height={160} />
       <motion.div
         className={styles.capsuleWrap}
         whileTap={{ y: 12, scaleY: 0.95 }}

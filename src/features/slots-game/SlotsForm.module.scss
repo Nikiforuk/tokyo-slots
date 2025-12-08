@@ -14,11 +14,13 @@
   text-shadow: 0 5px 0 rgba(0, 0, 0, 0.1);
   color: $primary;
   margin-bottom:  21px;
+  z-index: 999;
 }
 
 .elements {
   @include flex($align: center, $justify: center);
   gap: 12.5px;
+  z-index: 999;
 }
 
 .spin {

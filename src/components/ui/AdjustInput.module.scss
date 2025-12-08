@@ -25,23 +25,6 @@
   opacity: 0.8;
 }
 
-.inputToken {
-  @include flex($align: center, $justify: center);
-  @include size($w: 24px, $h: 24px);
-  position: absolute;
-  left: 18px;
-  top: 50%;
-  transform: translateY(-50%);
-  border-radius: 50%;
-  background: $red-bright;
-  border: 4px solid $black-dark;
-  box-sizing: content-box;
-  color: $red-dark;
-  font-family: $font-bungee;
-  font-size: 14px;
-  box-shadow: 0 4px 4px $smoked-taupe;
-}
-
 .forwardShadow {
   @include size($w: 100%, $h: 100%);
   position: absolute;
