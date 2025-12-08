@@ -21,7 +21,7 @@ import styles from './SlotsMachine.module.scss';
 export default function SlotsMachine() {
   return (
     <div className={styles.container}>
-      <Image className={styles.base} src={baseSlots} width={427} height={226} alt="slots-machine" />
+      <div className={styles.base}></div>
         <EyeMotion className={styles.eyeLeft}><Image src={leftEye} width={48} height={46} alt="left-eye" /></EyeMotion>
         <EyeMotion className={styles.eyeRight}><Image src={rightEye} width={48} height={46} alt="right-eye" /></EyeMotion>
         <SmileMotion className={styles.smile}><Image src={smile} width={25} height={13} alt="smile" /></SmileMotion>
