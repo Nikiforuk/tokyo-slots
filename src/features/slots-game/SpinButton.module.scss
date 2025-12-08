@@ -1,0 +1,32 @@
+@import '../../styles/variables';
+@import '../../styles/extends';
+@import '../../styles/mixins';
+
+.container {
+  position: relative;
+  width: 250px;
+  height: 140px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  margin-top: 75px;
+}
+
+.borders {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.capsuleWrap {
+  position: absolute;
+  left: 0;
+  top: -10px;
+  display: inline-block;
+  z-index: 999;
+}
+

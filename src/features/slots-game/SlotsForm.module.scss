@@ -4,7 +4,7 @@
 
 .container {
   @include flex($align: center, $justify: center, $direction: column);
-  margin-bottom: 75px;
+  min-width: 100%;
 }
 
 .label {
@@ -19,4 +19,13 @@
 .elements {
   @include flex($align: center, $justify: center);
   gap: 12.5px;
+}
+
+.spin {
+  @include flex($align: center, $justify: center);
+  background: url('../../assets/images/tokiocity.png');
+  background-position: center;
+  bottom: 0;
+  height: 277px;
+  width: 100%;
 }
