@@ -1,0 +1,22 @@
+@import '../../styles/variables';
+@import '../../styles/extends';
+@import '../../styles/mixins';
+
+.container {
+  @include flex($align: center, $justify: center, $direction: column);
+  margin-bottom: 75px;
+}
+
+.label {
+  @extend %bungee-14;
+  @include text-stroke(1.5px, #000000);
+  paint-order: stroke fill;
+  text-shadow: 0 5px 0 rgba(0, 0, 0, 0.1);
+  color: $primary;
+  margin-bottom:  21px;
+}
+
+.elements {
+  @include flex($align: center, $justify: center);
+  gap: 12.5px;
+}

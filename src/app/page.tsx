@@ -1,4 +1,4 @@
-import Slots from '@/features/slots/Slots';
+import Slots from '@/features/slots-game/Slots';
 import styles from './page.module.scss';
 
 export default function Home() {

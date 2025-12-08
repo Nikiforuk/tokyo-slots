@@ -1,0 +1,6 @@
+@import '../../styles/mixins';
+
+.container {
+  @include flex($align: center, $justify: center, $direction: column);
+  width: 100%;
+}

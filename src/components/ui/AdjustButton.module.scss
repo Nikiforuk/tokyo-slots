@@ -1,0 +1,27 @@
+@import '../../styles/variables';
+@import '../../styles/extends';
+@import '../../styles/mixins';
+
+.button {
+  @extend %bungee-25;
+  @include size($w: 64px, $h: 62px);
+  border-radius: 16px;
+  background: $white-light;
+  position: relative;
+  border: 3px solid $black-dark;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+
+  &::after {
+    @include size($w: 100%, $h: 100%);
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: inherit;
+    background: $blue-dark;
+    transform: translateY(10px);
+    z-index: -1;
+    box-shadow: 0 8px 4px rgba(0, 0, 0, 0.08);
+  }
+}
