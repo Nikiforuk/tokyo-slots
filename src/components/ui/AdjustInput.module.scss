@@ -29,7 +29,8 @@
   @include size($w: 100%, $h: 100%);
   position: absolute;
   left: 0;
-  top: -5;
+  top: -7;
   border-radius: 16px;
   background: $iron-taupe;
+  z-index: -1;
 }

@@ -2,6 +2,7 @@ import styles from './Slots.module.scss';
 import SlotsForm from './SlotsForm';
 import SlotsMachine from './SlotsMachine';
 import Decorations from './Decorations';
+import Modal from '../modal/Modal';
 
 export default function Slots() {
   return (
@@ -13,6 +14,7 @@ export default function Slots() {
       <div className={styles.cloudWhiteBackground} />
       <div className={styles.cloudLeft} />
       <div className={styles.cloudRight} />
+      <Modal />
     </div>
   )
 }
