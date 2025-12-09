@@ -19,6 +19,6 @@ export default function useBetControls() {
     setBet(Math.max(1, bet - 5));
   };
 
+
   return { balance, bet, setBetFromInput, incBet, decBet };
 }
-

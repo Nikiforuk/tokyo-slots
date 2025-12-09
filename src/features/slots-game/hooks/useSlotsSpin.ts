@@ -68,4 +68,3 @@ export default function useSlotsSpin() {
 
   return { spin, spinning };
 }
-

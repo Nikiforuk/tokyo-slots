@@ -28,17 +28,12 @@
   }
 }
 
-.baseImage {
-  pointer-events: none;
-}
-
 .reels {
   @include flex($align: center, $justify: space-between);
   position: absolute;
-  top: 70px;
+  top: 50px;
   left: 50%;
   transform: translateX(-50%);
-  width: 320px;
   gap: 10px;
 }
 
@@ -92,7 +87,13 @@
   right: -27px;
 }
 
-.handle {
+.handleActive {
+  position: absolute;
+  top: 86px;
+  right: -54px;
+}
+
+.handleDizactive {
   position: absolute;
   top: 25px;
   right: -54px;

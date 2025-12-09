@@ -24,7 +24,7 @@ export default function SpinButton({ onClick }: SpinButtonProps) {
       <Image className={styles.border2} src={border2} alt="spin-base" width={260} height={160} />
       <motion.div
         className={styles.capsuleWrap}
-        whileTap={{ y: 12, scaleY: 0.95 }}
+        whileTap={{ y: 16, scaleY: 0.94, zIndex: 8 }}
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
       >
         <Image className={styles.capsuleImg} src={capsule} alt="spin-top" width={240} height={160} />

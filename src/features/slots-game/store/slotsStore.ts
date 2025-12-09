@@ -11,6 +11,7 @@ type SlotsState = {
   setBet: (bet: number) => void;
   setReelIndexes: (indexes: number[] | ((prev: number[]) => number[])) => void;
   setSpinning: (spinning: boolean) => void;
+  topUp: (amount: number) => void;
 };
 
 export const useSlotsStore = create<SlotsState>()(
@@ -24,6 +25,7 @@ export const useSlotsStore = create<SlotsState>()(
       setBet: (bet) => set(() => ({ bet })),
       setReelIndexes: (indexes) => set((s) => ({ reelIndexes: typeof indexes === 'function' ? (indexes as any)(s.reelIndexes) : indexes })),
       setSpinning: (spinning) => set(() => ({ spinning })),
+      topUp: (amount) => set((s) => ({ balance: s.balance + Math.max(0, Math.floor(amount)) })),
     }),
     {
       name: 'tokyo-slots-storage',
@@ -31,4 +33,3 @@ export const useSlotsStore = create<SlotsState>()(
     },
   ),
 );
-

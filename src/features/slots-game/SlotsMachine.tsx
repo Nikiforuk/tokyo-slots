@@ -1,19 +1,20 @@
 "use client";
 import Image from 'next/image';
-import baseSlots from '../../assets/graphics/slots-game/slots.svg';
+import { motion } from 'framer-motion';
 import leftEye from '../../assets/graphics/slots-game/left-eye.svg';
 import rightEye from '../../assets/graphics/slots-game/right-eye.svg';
 import smile from '../../assets/graphics/slots-game/smile.svg';
 import emotion from '../../assets/graphics/slots-game/emotion.svg';
 import handleDizactive from '../../assets/graphics/slots-game/handle-turnOff.svg';
+import handleActive from '../../assets/graphics/slots-game/handle-turnOn.svg';
 import handleSupport from '../../assets/graphics/slots-game/handle-support-1.svg';
 import leftHand from '../../assets/graphics/slots-game/left-hand.svg';
 import rightHand from '../../assets/graphics/slots-game/right-hand.svg';
 import foots from '../../assets/graphics/slots-game/foots.svg';
-import seven from '../../assets/graphics/decorations/seven.svg';
-import lemon from '../../assets/graphics/decorations/lemon.svg';
-import cherry from '../../assets/graphics/decorations/cherry.svg';
-import diamond from '../../assets/graphics/decorations/diamond.svg';
+import seven from '../../assets/icons/seven.svg';
+import lemon from '../../assets/icons/lemon.svg';
+import cherry from '../../assets/icons/cherry.svg';
+import diamond from '../../assets/icons/diamond.svg';
 import EyeMotion from './animations/EyeMotion';
 import SmileMotion from './animations/SmileMotion';
 import BlushMotion from './animations/BlushMotion';
@@ -36,7 +37,12 @@ export default function SlotsMachine({ reelIndexes, spinning }: SlotsMachineProp
         <div className={styles.reels} aria-live={spinning ? 'polite' : 'off'}>
           {[0, 1, 2, 3].map((i) => (
             <div key={i} className={styles.reelWindow}>
-              <Image src={SYMBOLS[reelIndexes[i] % SYMBOLS.length]} width={60} height={60} alt="symbol" />
+              <motion.div
+                animate={spinning ? { y: [0, -8, 0, 8, 0] } : { y: 0 }}
+                transition={spinning ? { duration: 0.6, ease: 'easeInOut', repeat: Infinity } : { duration: 0 }}
+              >
+                <Image src={SYMBOLS[reelIndexes[i] % SYMBOLS.length]} width={60} height={60} alt="symbol" />
+              </motion.div>
             </div>
           ))}
         </div>
@@ -44,7 +50,7 @@ export default function SlotsMachine({ reelIndexes, spinning }: SlotsMachineProp
         <EyeMotion className={styles.eyeLeft}><Image src={leftEye} width={48} height={46} alt="left-eye" /></EyeMotion>
         <EyeMotion className={styles.eyeRight}><Image src={rightEye} width={48} height={46} alt="right-eye" /></EyeMotion>
         <SmileMotion className={styles.smile}><Image src={smile} width={25} height={13} alt="smile" /></SmileMotion>
-        <Image className={styles.handle} src={handleDizactive} width={30} height={120} alt="handle" />
+        {spinning ? <Image className={styles.handleActive} src={handleActive} width={30} height={120} alt="handle" /> : <Image className={styles.handleDizactive} src={handleDizactive} width={30} height={120} alt="handle" />}
         <BlushMotion className={styles.emotionLeft}><Image src={emotion} width={44} height={6} alt="emotion-left" /></BlushMotion>
         <BlushMotion className={styles.emotionRight}><Image src={emotion} width={44} height={6} alt="emotion-right" /></BlushMotion>
         <Image className={styles.handleSupport} src={handleSupport} width={26} height={118} alt="handle-support" />
