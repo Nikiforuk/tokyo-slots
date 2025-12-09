@@ -7,9 +7,11 @@ import useSlotsSpin from './hooks/useSlotsSpin';
 import styles from './Slots.module.scss';
 import SlotsForm from './SlotsForm';
 import SlotsMachine from './SlotsMachine';
+import ModalLose from '../modal/ModalLose';
+import ModalWin from '../modal/ModalWin';
 
 export default function Slots() {
-  const { balance, bet, reelIndexes, spinning } = useSlotsStore();
+  const { balance, bet, reelIndexes, spinning, modal } = useSlotsStore();
   const { spin } = useSlotsSpin();
   const { setBetFromInput, incBet, decBet } = useBetControls();
 
@@ -26,6 +28,8 @@ export default function Slots() {
         onSpin={spin}
         spinning={spinning}
       />
+      {modal?.type === 'win' && <ModalWin amount={modal.amount} />}
+      {modal?.type === 'lose' && <ModalLose amount={modal.amount} />}
       <div className={styles.clouGreenBackground} />
       <div className={styles.cloudWhiteBackground} />
       <div className={styles.cloudLeft} />

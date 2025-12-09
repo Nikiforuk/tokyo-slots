@@ -4,8 +4,17 @@ import { useRef } from 'react';
 import { useSlotsStore } from '@/features/slots-game/store/slotsStore';
 
 export default function useSlotsSpin() {
-  const { balance, bet, reelIndexes, setBalance, setReelIndexes, setSpinning, spinning } =
-    useSlotsStore();
+  const {
+    balance,
+    bet,
+    reelIndexes,
+    setBalance,
+    setReelIndexes,
+    setSpinning,
+    spinning,
+    setModal,
+    clearModal,
+  } = useSlotsStore();
   const intervalsRef = useRef<number[]>([]);
 
   const sanitizeBet = (value: number) => Math.max(1, Math.floor(value));
@@ -28,7 +37,13 @@ export default function useSlotsSpin() {
       );
       if (hasAdjacentPair) win = sanitizedBet * 2;
     }
-    if (win > 0) setBalance((prev) => prev + win);
+    if (win > 0) {
+      setBalance((prev) => prev + win);
+      setModal({ type: 'win', amount: win });
+    } else {
+      setModal({ type: 'lose', amount: sanitizedBet });
+    }
+    window.setTimeout(() => clearModal(), 2500);
   };
 
   const spin = () => {

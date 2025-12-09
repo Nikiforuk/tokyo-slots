@@ -12,6 +12,9 @@ type SlotsState = {
   setReelIndexes: (indexes: number[] | ((prev: number[]) => number[])) => void;
   setSpinning: (spinning: boolean) => void;
   topUp: (amount: number) => void;
+  modal: { type: 'win' | 'lose' | null; amount: number };
+  setModal: (modal: { type: 'win' | 'lose' | null; amount: number }) => void;
+  clearModal: () => void;
 };
 
 export const useSlotsStore = create<SlotsState>()(
@@ -21,6 +24,7 @@ export const useSlotsStore = create<SlotsState>()(
       bet: 10,
       reelIndexes: [0, 0, 0, 0],
       spinning: false,
+      modal: { type: null, amount: 0 },
       setBalance: (balance) =>
         set((slot) => ({
           balance: typeof balance === 'function' ? balance(slot.balance) : balance,
@@ -33,6 +37,8 @@ export const useSlotsStore = create<SlotsState>()(
       setSpinning: (spinning) => set(() => ({ spinning })),
       topUp: (amount) =>
         set((slot) => ({ balance: slot.balance + Math.max(0, Math.floor(amount)) })),
+      setModal: (modal) => set(() => ({ modal })),
+      clearModal: () => set(() => ({ modal: { type: null, amount: 0 } })),
     }),
     {
       name: 'tokyo-slots-storage',
