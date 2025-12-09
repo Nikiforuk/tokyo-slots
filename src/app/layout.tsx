@@ -18,7 +18,7 @@ const poetsenOne = Poetsen_One({
 });
 
 const pocketMonk = localFont({
-  src: "../fonts/PocketMonk.otf",
+  src: "../shared/fonts/PocketMonk.otf",
   variable: "--font-pocket-monk",
   display: "swap",
   weight: "400",

@@ -6,9 +6,12 @@ interface AdjustInputProps {
   name?: string;
   type?: string;
   placeholder?: string;
+  value?: string | number;
+  onChange?: (value: string) => void;
+  disabled?: boolean;
 }
 
-export default function AdjustInput({id, name, type, placeholder}: AdjustInputProps) {
+export default function AdjustInput({id, name, type, placeholder, value, onChange, disabled}: AdjustInputProps) {
   return (
     <div className={styles.wrapper}>
       <div className={styles.forwardShadow} />
@@ -21,6 +24,9 @@ export default function AdjustInput({id, name, type, placeholder}: AdjustInputPr
         className={styles.input}
         aria-label="Bet amount"
         placeholder={placeholder}
+        value={value as any}
+        onChange={(e) => onChange?.(e.target.value)}
+        disabled={disabled}
       />
     </div>
   )

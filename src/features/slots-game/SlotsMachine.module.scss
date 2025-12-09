@@ -1,6 +1,6 @@
-@import '../../styles/variables';
-@import '../../styles/extends';
-@import '../../styles/mixins';
+@import '../../shared/styles/variables';
+@import '../../shared/styles/extends';
+@import '../../shared/styles/mixins';
 
 .container {
   position: relative;
@@ -26,6 +26,28 @@
     background: $blue-sky;
     z-index: -1;
   }
+}
+
+.baseImage {
+  pointer-events: none;
+}
+
+.reels {
+  @include flex($align: center, $justify: space-between);
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  gap: 10px;
+}
+
+.reelWindow {
+  @include flex($align: center, $justify: center);
+  @include size($w: 80px, $h: 142px);
+  background: $white-light;
+  border: 3px solid $black-dark;
+  border-radius: 11px;
 }
 
 .eyeLeft {
@@ -67,13 +89,13 @@
 .handleSupport {
   position: absolute;
   top: 57px;
-  right: -17px;
+  right: -27px;
 }
 
 .handle {
   position: absolute;
   top: 25px;
-  right: -44px;
+  right: -54px;
 }
 
 .handLeft {

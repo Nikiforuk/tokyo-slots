@@ -1,3 +1,4 @@
+"use client";
 import Image from 'next/image';
 import baseSlots from '../../assets/graphics/slots-game/slots.svg';
 import leftEye from '../../assets/graphics/slots-game/left-eye.svg';
@@ -9,6 +10,10 @@ import handleSupport from '../../assets/graphics/slots-game/handle-support-1.svg
 import leftHand from '../../assets/graphics/slots-game/left-hand.svg';
 import rightHand from '../../assets/graphics/slots-game/right-hand.svg';
 import foots from '../../assets/graphics/slots-game/foots.svg';
+import seven from '../../assets/graphics/decorations/seven.svg';
+import lemon from '../../assets/graphics/decorations/lemon.svg';
+import cherry from '../../assets/graphics/decorations/cherry.svg';
+import diamond from '../../assets/graphics/decorations/diamond.svg';
 import EyeMotion from './animations/EyeMotion';
 import SmileMotion from './animations/SmileMotion';
 import BlushMotion from './animations/BlushMotion';
@@ -17,11 +22,25 @@ import HandSwayMotion from './animations/HandSwayMotion';
 import FootsMotion from './animations/FootsMotion';
 import styles from './SlotsMachine.module.scss';
 
+const SYMBOLS = [seven, diamond, cherry, lemon];
 
-export default function SlotsMachine() {
+interface SlotsMachineProps {
+  reelIndexes: number[];
+  spinning: boolean;
+}
+
+export default function SlotsMachine({ reelIndexes, spinning }: SlotsMachineProps) {
   return (
     <div className={styles.container}>
-      <div className={styles.base}></div>
+      <div className={styles.base}>
+        <div className={styles.reels} aria-live={spinning ? 'polite' : 'off'}>
+          {[0, 1, 2, 3].map((i) => (
+            <div key={i} className={styles.reelWindow}>
+              <Image src={SYMBOLS[reelIndexes[i] % SYMBOLS.length]} width={60} height={60} alt="symbol" />
+            </div>
+          ))}
+        </div>
+      </div>
         <EyeMotion className={styles.eyeLeft}><Image src={leftEye} width={48} height={46} alt="left-eye" /></EyeMotion>
         <EyeMotion className={styles.eyeRight}><Image src={rightEye} width={48} height={46} alt="right-eye" /></EyeMotion>
         <SmileMotion className={styles.smile}><Image src={smile} width={25} height={13} alt="smile" /></SmileMotion>

@@ -1,6 +1,6 @@
-@import '../../styles/variables';
-@import '../../styles/extends';
-@import '../../styles/mixins';
+@import '../../shared/styles/variables';
+@import '../../shared/styles/extends';
+@import '../../shared/styles/mixins';
 
 .container {
   @include size($w: 250px, $h: 140px);
