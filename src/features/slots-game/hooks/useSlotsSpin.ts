@@ -1,9 +1,11 @@
-"use client";
+'use client';
 import { useRef } from 'react';
+
 import { useSlotsStore } from '@/features/slots-game/store/slotsStore';
 
 export default function useSlotsSpin() {
-  const { balance, bet, reelIndexes, setBalance, setReelIndexes, setSpinning, spinning } = useSlotsStore();
+  const { balance, bet, reelIndexes, setBalance, setReelIndexes, setSpinning, spinning } =
+    useSlotsStore();
   const intervalsRef = useRef<number[]>([]);
 
   const sanitizeBet = (value: number) => Math.max(1, Math.floor(value));
@@ -11,25 +13,29 @@ export default function useSlotsSpin() {
   const finalizePayout = (finalReels: number[]) => {
     setSpinning(false);
     const counts: Record<number, number> = {};
-    finalReels.forEach((v) => { counts[v] = (counts[v] || 0) + 1; });
-    const b = sanitizeBet(bet);
+    finalReels.forEach((value) => {
+      counts[value] = (counts[value] || 0) + 1;
+    });
+    const sanitizedBet = sanitizeBet(bet);
     let win = 0;
-    if (Object.values(counts).some((c) => c === 4)) {
-      win = b * 10;
-    } else if (Object.values(counts).some((c) => c === 3)) {
-      win = b * 5;
+    if (Object.values(counts).some((count) => count === 4)) {
+      win = sanitizedBet * 10;
+    } else if (Object.values(counts).some((count) => count === 3)) {
+      win = sanitizedBet * 5;
     } else {
-      const hasAdjacentPair = finalReels.some((v, i) => i < finalReels.length - 1 && v === finalReels[i + 1]);
-      if (hasAdjacentPair) win = b * 2;
+      const hasAdjacentPair = finalReels.some(
+        (value, index) => index < finalReels.length - 1 && value === finalReels[index + 1],
+      );
+      if (hasAdjacentPair) win = sanitizedBet * 2;
     }
     if (win > 0) setBalance((prev) => prev + win);
   };
 
   const spin = () => {
     if (spinning) return;
-    const b = sanitizeBet(bet);
-    if (b > balance) return;
-    setBalance((prev) => prev - b);
+    const sanitizedBet = sanitizeBet(bet);
+    if (sanitizedBet > balance) return;
+    setBalance((prev) => prev - sanitizedBet);
     setSpinning(true);
 
     const symbolsCount = 4;
@@ -39,30 +45,30 @@ export default function useSlotsSpin() {
     intervalsRef.current = [];
 
     const current = [...reelIndexes];
-    for (let i = 0; i < 4; i++) {
-      let idx = current[i];
+    for (let index = 0; index < 4; index++) {
+      let idx = current[index];
       const id = window.setInterval(() => {
         idx = (idx + 1) % symbolsCount;
         setReelIndexes((prev) => {
           const next = [...prev];
-          next[i] = idx;
+          next[index] = idx;
           return next;
         });
       }, speed);
-      intervalsRef.current[i] = id;
+      intervalsRef.current[index] = id;
 
       window.setTimeout(() => {
         clearInterval(id);
         const finalIndex = Math.floor(Math.random() * symbolsCount);
         setReelIndexes((prev) => {
           const next = [...prev];
-          next[i] = finalIndex;
+          next[index] = finalIndex;
           return next;
         });
-        if (i === 3) {
+        if (index === 3) {
           window.setTimeout(() => finalizePayout(useSlotsStore.getState().reelIndexes), 120);
         }
-      }, delays[i]);
+      }, delays[index]);
     }
   };
 

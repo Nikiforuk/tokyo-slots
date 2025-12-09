@@ -1,11 +1,12 @@
-"use client";
+'use client';
+import { useSlotsStore } from '@/features/slots-game/store/slotsStore';
+
+import Decorations from './Decorations';
+import useBetControls from './hooks/useBetControls';
+import useSlotsSpin from './hooks/useSlotsSpin';
 import styles from './Slots.module.scss';
 import SlotsForm from './SlotsForm';
 import SlotsMachine from './SlotsMachine';
-import Decorations from './Decorations';
-import { useSlotsStore } from '@/features/slots-game/store/slotsStore';
-import useSlotsSpin from './hooks/useSlotsSpin';
-import useBetControls from './hooks/useBetControls';
 
 export default function Slots() {
   const { balance, bet, reelIndexes, spinning } = useSlotsStore();

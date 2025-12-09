@@ -1,6 +1,7 @@
-"use client";
-import { motion } from "framer-motion";
-import styles from "../Footer.module.scss";
+'use client';
+import { motion } from 'framer-motion';
+
+import styles from '../Footer.module.scss';
 
 export default function FooterTitle() {
   return (
@@ -9,10 +10,9 @@ export default function FooterTitle() {
       animate={{
         scale: [1, 1.02, 1],
       }}
-      transition={{ duration: 2.8, ease: "easeInOut", repeat: Infinity }}
+      transition={{ duration: 2.8, ease: 'easeInOut', repeat: Infinity }}
     >
       Balance
     </motion.h2>
   );
 }
-

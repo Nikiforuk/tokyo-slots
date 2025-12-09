@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
@@ -21,15 +21,26 @@ export const useSlotsStore = create<SlotsState>()(
       bet: 10,
       reelIndexes: [0, 0, 0, 0],
       spinning: false,
-      setBalance: (balance) => set((s) => ({ balance: typeof balance === 'function' ? (balance as any)(s.balance) : balance })),
+      setBalance: (balance) =>
+        set((slot) => ({
+          balance: typeof balance === 'function' ? balance(slot.balance) : balance,
+        })),
       setBet: (bet) => set(() => ({ bet })),
-      setReelIndexes: (indexes) => set((s) => ({ reelIndexes: typeof indexes === 'function' ? (indexes as any)(s.reelIndexes) : indexes })),
+      setReelIndexes: (indexes) =>
+        set((slot) => ({
+          reelIndexes: typeof indexes === 'function' ? indexes(slot.reelIndexes) : indexes,
+        })),
       setSpinning: (spinning) => set(() => ({ spinning })),
-      topUp: (amount) => set((s) => ({ balance: s.balance + Math.max(0, Math.floor(amount)) })),
+      topUp: (amount) =>
+        set((slot) => ({ balance: slot.balance + Math.max(0, Math.floor(amount)) })),
     }),
     {
       name: 'tokyo-slots-storage',
-      partialize: (state) => ({ balance: state.balance, bet: state.bet, reelIndexes: state.reelIndexes }),
+      partialize: (state) => ({
+        balance: state.balance,
+        bet: state.bet,
+        reelIndexes: state.reelIndexes,
+      }),
     },
   ),
 );

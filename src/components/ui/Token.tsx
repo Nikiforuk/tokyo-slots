@@ -10,9 +10,7 @@ interface TokenProps {
 
 export default function Token({ position, top, left, right, bottom }: TokenProps) {
   return (
-    <span
-      style={{ position, top, left, right, bottom }}
-      className={styles.inputToken}>
+    <span style={{ position, top, left, right, bottom }} className={styles.inputToken}>
       T
     </span>
   );

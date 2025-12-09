@@ -1,8 +1,12 @@
-"use client";
-import { motion } from "framer-motion";
-import type { PropsWithChildren } from "react";
+'use client';
+import type { PropsWithChildren } from 'react';
 
-export default function LemonMotion({ className, children }: PropsWithChildren<{ className?: string }>) {
+import { motion } from 'framer-motion';
+
+export default function LemonMotion({
+  className,
+  children,
+}: PropsWithChildren<{ className?: string }>) {
   return (
     <motion.div
       className={className}
@@ -12,10 +16,9 @@ export default function LemonMotion({ className, children }: PropsWithChildren<{
         x: [0, 2, -2, 0],
         y: [0, -2, 0, 2, 0],
       }}
-      transition={{ duration: 3.2, ease: "easeInOut", repeat: Infinity }}
+      transition={{ duration: 3.2, ease: 'easeInOut', repeat: Infinity }}
     >
       {children}
     </motion.div>
   );
 }
-

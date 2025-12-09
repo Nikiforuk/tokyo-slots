@@ -11,11 +11,19 @@ interface AdjustInputProps {
   disabled?: boolean;
 }
 
-export default function AdjustInput({id, name, type, placeholder, value, onChange, disabled}: AdjustInputProps) {
+export default function AdjustInput({
+  id,
+  name,
+  type,
+  placeholder,
+  value,
+  onChange,
+  disabled,
+}: AdjustInputProps) {
   return (
     <div className={styles.wrapper}>
       <div className={styles.forwardShadow} />
-      <Token position='absolute' top='50%' left='18px' />
+      <Token position="absolute" top="50%" left="18px" />
       <input
         id={id}
         name={name}
@@ -24,10 +32,10 @@ export default function AdjustInput({id, name, type, placeholder, value, onChang
         className={styles.input}
         aria-label="Bet amount"
         placeholder={placeholder}
-        value={value as any}
+        value={value}
         onChange={(e) => onChange?.(e.target.value)}
         disabled={disabled}
       />
     </div>
-  )
+  );
 }
