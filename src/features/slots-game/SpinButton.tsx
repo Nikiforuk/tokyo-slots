@@ -14,30 +14,44 @@ interface SpinButtonProps {
 export default function SpinButton({ onClick }: SpinButtonProps) {
   return (
     <div className={styles.container}>
-      <button
-        className={styles.button}
-        type="button"
-        onClick={() => {
-          onClick?.();
-        }}
-        aria-label="Spin"
-      >
-        <Image className={styles.border1} src={border1} alt="spin-base" width={238} height={160} />
-        <Image className={styles.border2} src={border2} alt="spin-base" width={260} height={160} />
-        <motion.div
-          className={styles.capsuleWrap}
-          whileTap={{ y: 16, scaleY: 0.94, zIndex: 8 }}
-          transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+      <div className={styles.bg}>
+        <button
+          className={styles.button}
+          type="button"
+          onClick={() => {
+            onClick?.();
+          }}
+          aria-label="Spin"
         >
           <Image
-            className={styles.capsuleImg}
-            src={capsule}
-            alt="spin-top"
-            width={250}
+            className={styles.border1}
+            src={border1}
+            alt="spin-base"
+            width={238}
             height={160}
           />
-        </motion.div>
-      </button>
+          <Image
+            className={styles.border2}
+            src={border2}
+            alt="spin-base"
+            width={260}
+            height={160}
+          />
+          <motion.div
+            className={styles.capsuleWrap}
+            whileTap={{ y: 16, scaleY: 0.94, zIndex: 8 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+          >
+            <Image
+              className={styles.capsuleImg}
+              src={capsule}
+              alt="spin-top"
+              width={250}
+              height={160}
+            />
+          </motion.div>
+        </button>
+      </div>
     </div>
   );
 }

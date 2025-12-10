@@ -1,4 +1,6 @@
 'use client';
+import { useEffect } from 'react';
+
 import Image from 'next/image';
 
 import Token from '@/components/ui/Token';
@@ -17,7 +19,7 @@ import ModalWin from '../modal/ModalWin';
 import TableTitle from './animations/TableTitle';
 
 export default function Slots() {
-  const { balance, bet, reelIndexes, spinning, modal } = useSlotsStore();
+  const { balance, bet, reelIndexes, spinning, modal, topUp } = useSlotsStore();
   const { spin } = useSlotsSpin();
   const { setBetFromInput, incBet, decBet } = useBetControls();
   const formatted = new Intl.NumberFormat('en-US', {
@@ -25,32 +27,40 @@ export default function Slots() {
     maximumFractionDigits: 2,
   }).format(balance);
 
+  useEffect(() => {
+    if (balance <= 0) {
+      topUp(1000);
+    }
+  }, [balance, topUp]);
+
   return (
     <div className={styles.container}>
-      <Decorations />
-      <SlotsMachine reelIndexes={reelIndexes} spinning={spinning} />
-      <SlotsForm
-        balance={balance}
-        bet={bet}
-        onBetChange={setBetFromInput}
-        onIncrementBet={incBet}
-        onDecrementBet={decBet}
-        onSpin={spin}
-        spinning={spinning}
-      />
-      {modal?.type === 'win' && <ModalWin amount={modal.amount} />}
-      {modal?.type === 'lose' && <ModalLose amount={modal.amount} />}
-      <div className={styles.clouGreenBackground} />
-      <div className={styles.cloudWhiteBackground} />
-      <div className={styles.cloudLeft} />
-      <div className={styles.cloudRight} />
-      <div className={styles.city} />
-      <div className={styles.tableFixed}>
-        <TableTitle />
-        <Image src={table} width={410} height={123} alt="table-graphics" />
-        <TableShine />
-        <Token position="absolute" top="50%" left="20%" right="51%" />
-        <p className={styles.tableFixed_sum}>{formatted}</p>
+      <div className={styles.bg}>
+        <Decorations />
+        <SlotsMachine reelIndexes={reelIndexes} spinning={spinning} />
+        <SlotsForm
+          balance={balance}
+          bet={bet}
+          onBetChange={setBetFromInput}
+          onIncrementBet={incBet}
+          onDecrementBet={decBet}
+          onSpin={spin}
+          spinning={spinning}
+        />
+        {modal?.type === 'win' && <ModalWin amount={modal.amount} />}
+        {modal?.type === 'lose' && <ModalLose amount={modal.amount} />}
+        <div className={styles.clouGreenBackground} />
+        <div className={styles.cloudWhiteBackground} />
+        <div className={styles.cloudLeft} />
+        <div className={styles.cloudRight} />
+        <div className={styles.city} />
+        <div className={styles.tableFixed}>
+          <TableTitle />
+          <Image src={table} width={410} height={123} alt="table-graphics" />
+          <TableShine />
+          <Token position="absolute" top="50%" left="20%" right="51%" />
+          <p className={styles.tableFixed_sum}>{formatted}</p>
+        </div>
       </div>
     </div>
   );

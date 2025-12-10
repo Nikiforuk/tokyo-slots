@@ -3,8 +3,13 @@
 @import '../../shared/styles/mixins';
 
 .container {
+  @include flex($align: center, $justify: center);
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.bg {
   position: relative;
-  width: 427px;
   height: 262px;
   overflow: visible;
   margin-bottom: 20px;
@@ -115,4 +120,64 @@
   position: absolute;
   left: 10%;
   bottom: -8px;
+}
+
+
+@media (max-width: 600px) {
+  .base {
+    width: 320px;
+    height: 175px;
+
+    &::after {
+      width: 320px;
+      height: 178px;
+    }
+  }
+
+  .reelWindow {
+    width: 57px;
+    height: 100px;
+  }
+
+  .reels {
+    gap: 7px;
+    top: 50px;
+  }
+
+  .reelIcons {
+    width: 50px;
+    height: 50px;
+  }
+
+  .handleSupport {
+    top: 50px;
+    right: -25px;
+    height: 80px;
+  }
+
+  .handleActive {
+    right: -45px;
+    height: 80px;
+  }
+
+  .handleDizactive {
+    right: -45px;
+    height: 80px;
+  }
+
+  .handLeft {
+    left: -10px;
+    top: 140px;
+  }
+
+  .handRight {
+    position: absolute;
+    right: -10px;
+    top: 140px;
+  }
+
+  .foots {
+    left: -2%;
+    bottom: 44px;
+  }
 }

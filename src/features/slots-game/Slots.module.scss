@@ -3,55 +3,69 @@
 @import '../../shared/styles/mixins';
 
 .container {
-  @include flex($align: center, $justify: flex-start, $direction: column);
-  width: 100%;
+  @include flex($align: center, $justify: space-between, $direction: column);
+  min-height: 100svh;
+  position: relative;
+}
+
+.bg {
+  @include flex($align: center, $justify: center, $direction: column);
+  width: 600px;
+  padding: 16px;
+  overflow-x: hidden;
 }
 
 .clouGreenBackground {
-  @include size($w: 100%, $h: 500px);
+  @include size($w: 100%, $h: 550px);
   position: absolute;
-  bottom: 100;
+  bottom: 0px;
   background: url('../../assets/images/cloud-green.png') no-repeat center bottom;
   background-size: cover;
   z-index: -1;
 }
 
 .cloudWhiteBackground {
-  @include size($w: 100%, $h: 316px);
+  @include size($w: 100%, $h: 300px);
   position: absolute;
   bottom: 0;
   background: url('../../assets/images/cloud-2.png') no-repeat center bottom;
   background-size: cover;
-  z-index: 1;
+  z-index: 100;
 }
 
 .cloudLeft {
-  @include size($w: 100%, $h: 454px);
   position: absolute;
   left: 0;
-  bottom: 50px;
+  bottom: 0px;
+  height: auto;
+  width: 50%; 
+  aspect-ratio: 1 / 0.45;
   background: url('../../assets/images/cloud-1.png') no-repeat left bottom;
   background-size: contain;
   z-index: 1;
 }
 
 .cloudRight {
-  @include size($w: 100%, $h: 454px);
   position: absolute;
   right: 0;
   bottom: 50px;
+  width: 50%; 
+  height: auto;
+  aspect-ratio: 1 / 0.45;
   background: url('../../assets/images/cloud-3.png') no-repeat right bottom;
   background-size: contain;
   z-index: 1;
 }
 
 .city {
-  @include size($w: 100%, $h: 277px);
-  background: url('../../assets/images/tokiocity.png');
-  background-position: center;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 0.17;
+  background: url('../../assets/images/tokiocity.png') no-repeat center bottom;
+  background-size: cover;
   position: absolute;
+  bottom: 150px;
   right: 0;
-  bottom: 150;
   z-index: -1;
 }
 
@@ -72,6 +86,7 @@
     top: -20px;
     color: $yellow-bright;
     text-shadow: 0 4px 4px $black;
+    white-space: nowrap;
   }
 
   &_sum {
@@ -81,15 +96,22 @@
     color: $white;
     top: 50px;
     right: 45%;
-    transform: translate(50%);
+    transform: translateX(50%);
+    white-space: nowrap;
   }
 
   &_shine {
-    @include size($w: 200%, $h: 100%);
     position: absolute;
-    left: -100%;
     top: -8px;
+
+    left: 0;
+    width: 100%;
+    height: 100%;
+
     background: $gradient-gloss;
-    filter: blur(2px);
+    filter: blur(12px);
+    opacity: 0.4;
+    pointer-events: none;
+    overflow: hidden;
   }
 }

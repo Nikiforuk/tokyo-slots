@@ -3,10 +3,13 @@
 @import '../../shared/styles/mixins';
 
 .container {
+  @include flex($align: center, $justify: center, $direction: column);
+  height: 500px;
+}
+
+.bg {
   @include size($w: 250px, $h: 140px);
   position: absolute;
-  bottom: 20%;
-  transform: translateX(-50%);
   border: none;
   background: transparent;
   padding: 0;
@@ -16,7 +19,7 @@
 .border1 {
   position: absolute;
   left: 50%;
-  top: -30px;
+  top: -3px;
   transform: translateX(-50%);
   pointer-events: none;
   z-index: 10;
@@ -25,17 +28,17 @@
 .border2 {
   position: absolute;
   left: 50%;
-  bottom: -5px;
+  bottom: -31px;
   transform: translateX(-50%);
   pointer-events: none;
-  z-index: 9;
+  z-index: -2;
 }
 
 .capsuleWrap {
   position: absolute;
   left: 0;
-  top: -20px;
+  top: 10px;
   display: inline-block;
-  z-index: 500;
+  z-index: 800;
 }
 

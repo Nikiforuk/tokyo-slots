@@ -7,8 +7,8 @@
   @include size($w: 100%, $h: clamp(85px, 8vh, 130px));
   position: relative;
   overflow: visible;
-  max-height: 135px;
-  margin-bottom: 100px;
+  height: 85px;
+  margin-bottom: 90px;
 }
 
 .cloud {

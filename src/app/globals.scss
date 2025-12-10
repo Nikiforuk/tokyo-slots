@@ -1,8 +1,6 @@
 @import '../shared/styles/variables';
 @import '../shared/styles/mixins';
 
-/* Removed :root CSS variables. Use SCSS variables from shared/styles/_variables.scss */
-
 html,
 body {
   overflow-x: hidden;
@@ -15,10 +13,6 @@ body {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-main {
-  @include flex($align: center, $justify: center);
 }
 
 * {

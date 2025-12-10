@@ -3,7 +3,7 @@
 @import '../../shared/styles/mixins';
 
 .container {
-  @include flex($align: center, $justify: flex-end, $direction: column);
+  @include flex($align: center, $justify: center, $direction: column);
 }
 
 .label {
