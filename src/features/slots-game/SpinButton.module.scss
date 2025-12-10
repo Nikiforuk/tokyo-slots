@@ -4,12 +4,13 @@
 
 .container {
   @include size($w: 250px, $h: 140px);
-  position: relative;
+  position: absolute;
+  bottom: 20%;
+  transform: translateX(-50%);
   border: none;
   background: transparent;
   padding: 0;
   cursor: pointer;
-  margin-top: 100px;
 }
 
 .border1 {
@@ -32,8 +33,8 @@
 
 .capsuleWrap {
   position: absolute;
-  left: 5;
-  top: -30px;
+  left: 0;
+  top: -20px;
   display: inline-block;
   z-index: 500;
 }

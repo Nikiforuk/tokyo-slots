@@ -4,7 +4,7 @@
 
 .container {
   @include flex($align: _, $justify: center);
-  @include size($w: 100%, $h: 105px);
+  @include size($w: 100%, $h: clamp(85px, 8vh, 130px));
   position: relative;
   overflow: visible;
   max-height: 135px;
@@ -15,7 +15,7 @@
   position: absolute;
   inset: 0;
   background: url('../../assets/graphics/cloud-top.svg') repeat-x center bottom;
-  background-size: auto 105px;
+  background-size: auto clamp(85px, 8vh, 130px);
 }
 
 .table {

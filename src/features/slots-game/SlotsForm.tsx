@@ -27,20 +27,22 @@ export default function SlotsForm({
       <label className={styles.label} htmlFor="bet">
         Place a bid
       </label>
-      <div className={styles.elements}>
-        <AdjustButton text="+" onClick={onIncrementBet} />
-        <AdjustInput
-          id="bet"
-          type="text"
-          placeholder="99 999.99"
-          value={bet}
-          onChange={onBetChange}
-          disabled={spinning}
-        />
-        <AdjustButton text="-" onClick={onDecrementBet} />
-      </div>
-      <div className={styles.spin}>
-        <SpinButton onClick={onSpin} />
+      <div className={styles.flexBox}>
+        <div className={styles.elements}>
+          <AdjustButton text="+" onClick={onIncrementBet} />
+          <AdjustInput
+            id="bet"
+            type="text"
+            placeholder="99 999.99"
+            value={bet}
+            onChange={onBetChange}
+            disabled={spinning}
+          />
+          <AdjustButton text="-" onClick={onDecrementBet} />
+        </div>
+        <div className={styles.spin}>
+          <SpinButton onClick={onSpin} />
+        </div>
       </div>
     </form>
   );

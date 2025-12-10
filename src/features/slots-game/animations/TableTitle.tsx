@@ -1,12 +1,12 @@
 'use client';
 import { motion } from 'framer-motion';
 
-import styles from '../Footer.module.scss';
+import styles from '../Slots.module.scss';
 
-export default function FooterTitle() {
+export default function TableTitle() {
   return (
     <motion.h2
-      className={styles.table_title}
+      className={styles.tableFixed_title}
       animate={{
         scale: [1, 1.02, 1],
       }}

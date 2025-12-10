@@ -1,6 +1,0 @@
-@import '../shared/styles/mixins';
-
-.main {
-  @include flex($align: flex-start, $justify: space-between, $direction: column);
-  width: 100%;
-}

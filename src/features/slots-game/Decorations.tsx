@@ -1,8 +1,6 @@
 'use client';
 import Image from 'next/image';
 
-import CoinButton from '@/components/ui/CoinButton';
-
 import CherryPeekMotion from './animations/CherryPeekMotion';
 import CoinArrowSwayMotion from './animations/CoinArrowSwayMotion';
 import CoinArrowWaveMotion from './animations/CoinArrowWaveMotion';
@@ -13,7 +11,6 @@ import DiamondPeekMotion from './animations/DiamondPeekMotion';
 import LemonMotion from './animations/LemonMotion';
 import SevenFloatMotion from './animations/SevenFloatMotion';
 import styles from './Decorations.module.scss';
-import arrowImg from '../../assets/graphics/decorations/arrow.svg';
 import cherry from '../../assets/graphics/decorations/cherry.svg';
 import coinArrow1 from '../../assets/graphics/decorations/coin-arrows-1.svg';
 import coinSmile1 from '../../assets/graphics/decorations/coin-smile-1.svg';
@@ -25,23 +22,6 @@ import seven from '../../assets/graphics/decorations/seven.svg';
 export default function Decorations() {
   return (
     <>
-      <CoinButton
-        icon={arrowImg}
-        iconWidth={14}
-        iconHeight={23}
-        position="absolute"
-        top="80px"
-        left="30%"
-      />
-      <CoinButton
-        icon={arrowImg}
-        iconWidth={14}
-        iconHeight={23}
-        position="absolute"
-        top="80px"
-        right="30%"
-        reverse
-      />
       <CrownMotion className={styles.crown}>
         <Image src={crown} width={41} height={37} alt="crown-image" />
       </CrownMotion>

@@ -1,47 +1,95 @@
+@import '../../shared/styles/variables';
+@import '../../shared/styles/extends';
 @import '../../shared/styles/mixins';
 
 .container {
-  @include flex($align: center, $justify: center, $direction: column);
+  @include flex($align: center, $justify: flex-start, $direction: column);
   width: 100%;
 }
 
 .clouGreenBackground {
-  @include size($w: 100%, $h: 100%);
+  @include size($w: 100%, $h: 500px);
   position: absolute;
-  background: url('../../assets/images/cloud-green.png');
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-size: contain;
-  bottom: 0px;
-  z-index: 0;
+  bottom: 100;
+  background: url('../../assets/images/cloud-green.png') no-repeat center bottom;
+  background-size: cover;
+  z-index: -1;
 }
 
 .cloudWhiteBackground {
-  @include size($w: 100%, $h: 252px);
+  @include size($w: 100%, $h: 316px);
   position: absolute;
-  background: url('../../assets/images/cloud-2.png');
-  background-size: contain;
-  background-position: center;
   bottom: 0;
-  z-index: 499;
+  background: url('../../assets/images/cloud-2.png') no-repeat center bottom;
+  background-size: cover;
+  z-index: 1;
 }
 
 .cloudLeft {
-  @include size($w: 482px, $h: 454px);
+  @include size($w: 100%, $h: 454px);
   position: absolute;
-  background: url('../../assets/images/cloud-1.png');
-  background-repeat: no-repeat;
   left: 0;
-  bottom: 0px;
+  bottom: 50px;
+  background: url('../../assets/images/cloud-1.png') no-repeat left bottom;
+  background-size: contain;
   z-index: 1;
 }
 
 .cloudRight {
-  @include size($w: 482px, $h: 454px);
+  @include size($w: 100%, $h: 454px);
   position: absolute;
-  background: url('../../assets/images/cloud-3.png');
-  background-repeat: no-repeat;
   right: 0;
-  bottom: 0px;
+  bottom: 50px;
+  background: url('../../assets/images/cloud-3.png') no-repeat right bottom;
+  background-size: contain;
   z-index: 1;
+}
+
+.city {
+  @include size($w: 100%, $h: 277px);
+  background: url('../../assets/images/tokiocity.png');
+  background-position: center;
+  position: absolute;
+  right: 0;
+  bottom: 150;
+  z-index: -1;
+}
+
+.tableFixed {
+  @include flex($align: center, $justify: center);
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  z-index: 999;
+
+  &_title {
+    @include text-stroke(10px, $black-dark);
+    @extend %poetsen-55;
+    position: absolute;
+    paint-order: stroke fill;
+    transform: translateX(-50%);
+    top: -20px;
+    color: $yellow-bright;
+    text-shadow: 0 4px 4px $black;
+  }
+
+  &_sum {
+    position: absolute;
+    @include text-stroke(2px, $black-dark);
+    @extend %bungee-30-right;
+    color: $white;
+    top: 50px;
+    right: 45%;
+    transform: translate(50%);
+  }
+
+  &_shine {
+    @include size($w: 200%, $h: 100%);
+    position: absolute;
+    left: -100%;
+    top: -8px;
+    background: $gradient-gloss;
+    filter: blur(2px);
+  }
 }

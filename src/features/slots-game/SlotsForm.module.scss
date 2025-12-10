@@ -3,8 +3,7 @@
 @import '../../shared/styles/mixins';
 
 .container {
-  @include flex($align: center, $justify: center, $direction: column);
-  min-width: 100%;
+  @include flex($align: center, $justify: flex-end, $direction: column);
 }
 
 .label {
@@ -17,16 +16,13 @@
   z-index: 999;
 }
 
-.elements {
-  @include flex($align: center, $justify: center);
+.flexBox {
+  @include flex($align: center, $justify: center, $direction: column);
   gap: 12.5px;
   z-index: 999;
 }
 
-.spin {
+.elements {
   @include flex($align: center, $justify: center);
-  @include size($w: 100%, $h: 277px);
-  background: url('../../assets/images/tokiocity.png');
-  background-position: center;
-  bottom: 0;
+  gap: 12.5px;
 }

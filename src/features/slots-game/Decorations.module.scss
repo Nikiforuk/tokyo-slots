@@ -2,61 +2,68 @@
   position: absolute;
   left: 20px;
   top: 20%;
+  z-index: 800;
 }
 
 .coinSmile1 {
   position: absolute;
   left: 75px;
   top: 30%;
+  z-index: 800;
 }
 
 .coinSmile2 {
   position: absolute;
-  left: 20px;
-  top: 80%;
-  z-index: 999;
+  left: 30px;
+  top: 70%;
+  z-index: 1;
 }
 
 .coinArrow1 {
   position: absolute;
-  top: 15%;
+  top: 20%;
   right: -5;
+  z-index: 1000;
 }
 
 .coinArrow2 {
   position: absolute;
-  top: 65%;
+  top: 60%;
   left: 30%;
+  z-index: 1000;
 }
 
 .diamond {
   position: absolute;
-  top: 30%;
+  top: 35%;
   right: -12;
+  z-index: 1000;
 }
 
 .cherry {
   position: absolute;
   top: 50%;
   left: 0;
-  z-index: 999;
+  z-index: 1000;
 }
 
 .seven1 {
   position: absolute;
   top: 80%;
-  left: 40%;
+  left: 30%;
+  z-index: 800;
 }
 
 .seven2 {
   position: absolute;
-  top: 70%;
-  right: 10%;
+  top: 75%;
+  right: 2%;
+  z-index: 1;
 }
 
 .lemon {
   position: absolute;
-  top: 85%;
-  right: 30%;
-  z-index: 999;
+  top: 72%;
+  right: 15%;
+  z-index: 1000;
 }
