@@ -2,7 +2,6 @@ import AdjustButton from '@/components/ui/AdjustButton';
 import AdjustInput from '@/components/ui/AdjustInput';
 
 import styles from './SlotsForm.module.scss';
-import SpinButton from './SpinButton';
 
 interface SlotsFormProps {
   balance: number;
@@ -10,7 +9,6 @@ interface SlotsFormProps {
   onBetChange: (value: string) => void;
   onIncrementBet: () => void;
   onDecrementBet: () => void;
-  onSpin: () => void;
   spinning: boolean;
 }
 
@@ -19,7 +17,6 @@ export default function SlotsForm({
   onBetChange,
   onIncrementBet,
   onDecrementBet,
-  onSpin,
   spinning,
 }: SlotsFormProps) {
   return (
@@ -39,9 +36,6 @@ export default function SlotsForm({
             disabled={spinning}
           />
           <AdjustButton text="-" onClick={onDecrementBet} />
-        </div>
-        <div className={styles.spin}>
-          <SpinButton onClick={onSpin} />
         </div>
       </div>
     </form>

@@ -1,25 +1,19 @@
 'use client';
 
-import Image from 'next/image';
-
 import sicretImg from '@/assets/decorations/sicret.svg';
-import table from '@/assets/graphics/table-2.svg';
 import CoinButton from '@/components/ui/CoinButton';
-import Token from '@/components/ui/Token';
 import { useSlotsStore } from '@/features/slots-game/store/slotsStore';
 import { backgroundDecorations } from '@/shared/constants/slots-game';
-import { formatCurrency } from '@/shared/utils/formatNumber';
 
-import TableShine from './animations/TableShine';
 import Decorations from './Decorations';
 import useBetControls from './hooks/useBetControls';
 import useSlotsSpin from './hooks/useSlotsSpin';
 import styles from './Slots.module.scss';
 import SlotsForm from './SlotsForm';
 import SlotsMachine from './SlotsMachine';
+import TableFixed from './TableFixed';
 import ModalLose from '../modal/ModalLose';
 import ModalWin from '../modal/ModalWin';
-import TableTitle from './animations/TableTitle';
 
 export default function Slots() {
   const { balance, bet, reelIndexes, spinning, modal, topUp } = useSlotsStore();
@@ -38,7 +32,7 @@ export default function Slots() {
         iconHeight={23}
         position="absolute"
         top="90%"
-        right="40%"
+        left="15%"
         onClick={handleClickOnSicretBonus}
       />
       <div className={styles.bg}>
@@ -50,7 +44,6 @@ export default function Slots() {
           onBetChange={setBetFromInput}
           onIncrementBet={incBet}
           onDecrementBet={decBet}
-          onSpin={spin}
           spinning={spinning}
         />
         {modal?.type === 'win' && <ModalWin amount={modal.amount} />}
@@ -58,13 +51,7 @@ export default function Slots() {
         {backgroundDecorations.map((bg) => (
           <div key={bg.id} className={styles[bg.className]} />
         ))}
-        <div className={styles.tableFixed}>
-          <TableTitle />
-          <Image src={table} width={410} height={123} alt="table-graphics" />
-          <TableShine />
-          <Token position="absolute" top="50%" left="20%" right="51%" />
-          <p className={styles.tableFixed_sum}>{formatCurrency(balance)}</p>
-        </div>
+        <TableFixed onSpin={spin} />
       </div>
     </div>
   );

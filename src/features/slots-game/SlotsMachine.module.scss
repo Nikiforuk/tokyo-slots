@@ -181,3 +181,90 @@
     bottom: 44px;
   }
 }
+
+@media (max-width: 420px) {
+  .base {
+    width: 280px;
+    height: 155px;
+
+    &::after {
+      width: 280px;
+      height: 158px;
+    }
+  }
+
+  .bg {
+    height: 240px;
+  }
+
+  .reelWindow {
+    width: 50px;
+    height: 90px;
+  }
+
+  .reels {
+    gap: 12px;
+    top: 50px;
+  }
+
+  .reelIcons {
+    width: 40px;
+    height: 40px;
+  }
+
+  .eyeLeft {
+    left: 50px;
+    top: -25px;
+  }
+
+  .eyeRight {
+    right: 50px;
+    top: -25px;
+  }
+
+  .emotionLeft {
+    position: absolute;
+    left: 29px;
+    top: 25px;
+    pointer-events: none;
+  }
+
+  .emotionRight {
+    position: absolute;
+    right: 20px;
+    top: 25px;
+    pointer-events: none;
+  }
+
+  .handleSupport {
+    top: 50px;
+    right: -25px;
+    height: 70px;
+  }
+
+  .handleActive {
+    top: 70px;
+    right: -40px;
+    height: 70px;
+  }
+
+  .handleDizactive {
+    right: -40px;
+    height: 75px;
+  }
+
+  .handLeft {
+    left: -9px;
+    top: 130px;
+  }
+
+  .handRight {
+    position: absolute;
+    right: -10px;
+    top: 130px;
+  }
+
+  .foots {
+    left: -11%;
+  }
+}

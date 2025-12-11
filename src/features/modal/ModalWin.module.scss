@@ -17,8 +17,8 @@
   @include size($w: 302px, $h: 136px);
   position: relative;
   transform: translateX(50% 50%);
-  bottom: 50px;
   z-index: 1001;
+  bottom: 50px
 }
 
 .title {

@@ -23,7 +23,7 @@ export default function AdjustInput({
   return (
     <div className={styles.wrapper}>
       <div className={styles.forwardShadow} />
-      <Token position="absolute" top="50%" left="18px" />
+      <Token position="absolute" top="50%" left="30px" />
       <input
         id={id}
         name={name}

@@ -5,12 +5,16 @@ export default function useBetControls() {
   const { balance, bet, setBet } = useSlotsStore();
 
   const setBetFromInput = (value: string) => {
-    const cleaned = value.replace(/[^0-9.]/g, '');
+    if (value === '') {
+      setBet(0);
+      return;
+    }
 
-    const num = Math.floor(parseFloat(cleaned || '0'));
+    const cleaned = value.replace(/[^0-9]/g, '');
+    if (cleaned === '') return;
 
-    if (Number.isNaN(num)) return;
-    setBet(Math.max(1, num));
+    const num = parseInt(cleaned, 10);
+    setBet(Math.min(Math.max(1, num), balance));
   };
 
   const incBet = () => {
