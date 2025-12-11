@@ -4,8 +4,9 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
+import coinImg from '@/assets/decorations/coin.svg';
+
 import styles from './CoinButton.module.scss';
-import coinImage from '../../assets/graphics/decorations/coin.svg';
 
 interface CoinButtonProps {
   icon: string;
@@ -17,6 +18,8 @@ interface CoinButtonProps {
   right?: string;
   bottom?: string;
   reverse?: boolean;
+
+  onClick?: () => void;
 }
 
 export default function CoinButton({
@@ -29,10 +32,12 @@ export default function CoinButton({
   right,
   bottom,
   reverse,
+  onClick,
 }: CoinButtonProps) {
   const [delay] = useState(() => Math.floor(Math.random() * 4) + 2);
   return (
     <motion.button
+      onClick={onClick}
       style={{ position, top, left, right, bottom }}
       type="button"
       className={styles.button}
@@ -45,7 +50,7 @@ export default function CoinButton({
         y: { duration: 2.8, ease: 'easeInOut', repeat: Infinity },
       }}
     >
-      <Image src={coinImage} width={77} height={77} alt="coin-image" />
+      <Image src={coinImg} width={77} height={77} alt="coin-image" />
       <Image
         className={styles.secondIcon}
         style={reverse ? { transform: 'scaleX(-1)' } : undefined}

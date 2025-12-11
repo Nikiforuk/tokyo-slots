@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { Bungee, Poetsen_One } from 'next/font/google';
 import localFont from 'next/font/local';
 
+import Header from '@/components/layout/Header';
 import './globals.scss';
-import Header from '../components/layout/Header';
 
 const bungee = Bungee({
   variable: '--font-bungee',

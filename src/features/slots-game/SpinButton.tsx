@@ -2,10 +2,11 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
+import border1Img from '@/assets/graphics/spin-button/spin-border-1.svg';
+import border2Img from '@/assets/graphics/spin-button/spin-border-2.svg';
+import capsuleImg from '@/assets/graphics/spin-button/spin-capsule.svg';
+
 import styles from './SpinButton.module.scss';
-import border1 from '../../assets/graphics/spin-button/spin-border-1.svg';
-import border2 from '../../assets/graphics/spin-button/spin-border-2.svg';
-import capsule from '../../assets/graphics/spin-button/spin-capsule.svg';
 
 interface SpinButtonProps {
   onClick?: () => void;
@@ -25,14 +26,14 @@ export default function SpinButton({ onClick }: SpinButtonProps) {
         >
           <Image
             className={styles.border1}
-            src={border1}
+            src={border1Img}
             alt="spin-base"
             width={238}
             height={160}
           />
           <Image
             className={styles.border2}
-            src={border2}
+            src={border2Img}
             alt="spin-base"
             width={260}
             height={160}
@@ -44,7 +45,7 @@ export default function SpinButton({ onClick }: SpinButtonProps) {
           >
             <Image
               className={styles.capsuleImg}
-              src={capsule}
+              src={capsuleImg}
               alt="spin-top"
               width={250}
               height={160}

@@ -1,6 +1,6 @@
-@import '../../shared/styles/variables';
-@import '../../shared/styles/extends';
-@import '../../shared/styles/mixins';
+@use '@/shared/styles/variables' as *;
+@use '@/shared/styles/extends' as *;
+@use '@/shared/styles/mixins' as *;
 
 .button {
   @include flex($align: center, $justify: center);
@@ -10,7 +10,7 @@
   background: none;
   cursor: pointer;
   perspective: 600px;
-  z-index: 999;
+  z-index: 1000;
 }
 
 .secondIcon {

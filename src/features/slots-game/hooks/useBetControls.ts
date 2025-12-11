@@ -6,7 +6,9 @@ export default function useBetControls() {
 
   const setBetFromInput = (value: string) => {
     const cleaned = value.replace(/[^0-9.]/g, '');
+
     const num = Math.floor(parseFloat(cleaned || '0'));
+
     if (Number.isNaN(num)) return;
     setBet(Math.max(1, num));
   };
