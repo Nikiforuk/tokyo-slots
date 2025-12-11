@@ -13,10 +13,10 @@
   position: absolute;
   border: none;
   background: transparent;
-  bottom: 200px;
+  bottom: 225px;
   padding: 0;
   cursor: pointer;
-  z-index: 1999;
+  z-index: 500;
 }
 
 .border1 {
@@ -25,7 +25,7 @@
   top: -3px;
   transform: translateX(-50%);
   pointer-events: none;
-  z-index: 1999;
+  z-index: 500;
 }
 
 .border2 {
@@ -34,7 +34,7 @@
   bottom: -31px;
   transform: translateX(-50%);
   pointer-events: none;
-  z-index: 1999;
+  z-index: 500;
 }
 
 .capsuleWrap {
@@ -42,6 +42,6 @@
   left: 0;
   top: 10px;
   display: inline-block;
-  z-index: 3000;
+  z-index: 1001;
 }
 
