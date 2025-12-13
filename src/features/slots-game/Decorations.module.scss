@@ -16,7 +16,7 @@
   position: absolute;
   left: 50px;
   top: 70%;
-  z-index: 1;
+  z-index: 1500;
 }
 
 .coinArrow1 {
@@ -51,7 +51,7 @@
   position: absolute;
   top: 80%;
   left: 30%;
-  z-index: 800;
+  z-index: 1500;
 }
 
 .seven2 {
@@ -65,7 +65,7 @@
   position: absolute;
   top: 75%;
   right: 15%;
-  z-index: 1000;
+  z-index: 1500;
 }
 
 @media (max-width: 600px) {

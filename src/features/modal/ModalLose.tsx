@@ -18,7 +18,7 @@ export default function ModalLose({ amount }: ModalLoseProps) {
           src={tableLoseImg}
           width={302}
           height={236}
-          alt="table-win"
+          alt="table-lose"
         />
         <h4 className={styles.title}>
           You <span className={styles.title_lose}>Lose</span>

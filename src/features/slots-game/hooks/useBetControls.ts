@@ -6,7 +6,7 @@ export default function useBetControls() {
 
   const setBetFromInput = (value: string) => {
     if (value === '') {
-      setBet(0);
+      setBet(null);
       return;
     }
 
@@ -18,11 +18,15 @@ export default function useBetControls() {
   };
 
   const incBet = () => {
-    setBet(Math.min(bet + 5, balance));
+    if (bet) {
+      setBet(Math.min(bet + 5, balance));
+    }
   };
 
   const decBet = () => {
-    setBet(Math.max(1, bet - 5));
+    if (bet) {
+      setBet(Math.max(1, bet - 5));
+    }
   };
 
   return { balance, bet, setBetFromInput, incBet, decBet };

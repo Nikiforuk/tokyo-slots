@@ -30,6 +30,13 @@ import SevenFloatMotion from '@/features/slots-game/animations/SevenFloatMotion'
 import SmileMotion from '@/features/slots-game/animations/SmileMotion';
 import { CoinBtn } from '@/types/slots-game';
 
+export const STORAGE_KEY = 'tokyo-slots-storage';
+
+export const REELS_COUNT = 4;
+export const SYMBOLS_COUNT = 4;
+export const SPIN_SPEED_MS = 90;
+export const REEL_DELAYS_MS = [1200, 1600, 2000, 2400];
+
 export const coinBtns: CoinBtn[] = [
   {
     icon: arrowImg,
@@ -145,7 +152,7 @@ export const decorationsConfig = [
 ];
 
 export const backgroundDecorations = [
-  { id: 'greenCloud', className: 'clouGreenBackground' },
+  { id: 'greenCloud', className: 'cloudGreenBackground' },
   { id: 'whiteCloud', className: 'cloudWhiteBackground' },
   { id: 'cloudLeft', className: 'cloudLeft' },
   { id: 'cloudRight', className: 'cloudRight' },

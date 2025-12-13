@@ -1,6 +1,6 @@
 'use client';
 
-import sicretImg from '@/assets/decorations/sicret.svg';
+import secretImg from '@/assets/decorations/sicret.svg';
 import CoinButton from '@/components/ui/CoinButton';
 import { useSlotsStore } from '@/features/slots-game/store/slotsStore';
 import { backgroundDecorations } from '@/shared/constants/slots-game';
@@ -20,26 +20,25 @@ export default function Slots() {
   const { spin } = useSlotsSpin();
   const { setBetFromInput, incBet, decBet } = useBetControls();
 
-  const handleClickOnSicretBonus = () => {
+  const handleClickOnSecretBonus = () => {
     if (balance <= 0) topUp(1000);
   };
 
   return (
     <div className={styles.container}>
       <CoinButton
-        icon={sicretImg}
+        icon={secretImg}
         iconWidth={14}
         iconHeight={23}
         position="absolute"
         top="90%"
         left="15%"
-        onClick={handleClickOnSicretBonus}
+        onClick={handleClickOnSecretBonus}
       />
       <div className={styles.bg}>
         <Decorations />
         <SlotsMachine reelIndexes={reelIndexes} spinning={spinning} />
         <SlotsForm
-          balance={balance}
           bet={bet}
           onBetChange={setBetFromInput}
           onIncrementBet={incBet}

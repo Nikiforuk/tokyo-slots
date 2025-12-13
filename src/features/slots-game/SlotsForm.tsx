@@ -4,8 +4,7 @@ import AdjustInput from '@/components/ui/AdjustInput';
 import styles from './SlotsForm.module.scss';
 
 interface SlotsFormProps {
-  balance: number;
-  bet: number;
+  bet: number | null;
   onBetChange: (value: string) => void;
   onIncrementBet: () => void;
   onDecrementBet: () => void;
@@ -30,8 +29,8 @@ export default function SlotsForm({
           <AdjustInput
             id="bet"
             type="text"
-            placeholder="99 999.99"
-            value={bet}
+            placeholder="Let's go"
+            value={bet ? bet : ''}
             onChange={onBetChange}
             disabled={spinning}
           />

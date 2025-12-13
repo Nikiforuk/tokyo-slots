@@ -1,7 +1,7 @@
 'use client';
-import { useRef } from 'react';
-
+import { useEffect, useRef } from 'react';
 import { useSlotsStore } from '@/features/slots-game/store/slotsStore';
+import { REELS_COUNT, SYMBOLS_COUNT, SPIN_SPEED_MS, REEL_DELAYS_MS } from '@/shared/constants/slots-game';
 
 export default function useSlotsSpin() {
   const {
@@ -15,79 +15,84 @@ export default function useSlotsSpin() {
     setModal,
     clearModal,
   } = useSlotsStore();
+
   const intervalsRef = useRef<number[]>([]);
 
-  const sanitizeBet = (value: number) => Math.max(1, Math.floor(value));
+  const sanitizeBet = (value: number | null | undefined): number =>
+    value && value > 0 ? Math.floor(value) : 0;
+
+  const clearIntervals = () => {
+    intervalsRef.current.forEach((id) => clearInterval(id));
+    intervalsRef.current = [];
+  };
+
+  useEffect(() => clearIntervals, []);
 
   const finalizePayout = (finalReels: number[]) => {
     setSpinning(false);
 
     const counts: Record<number, number> = {};
-
     finalReels.forEach((value) => {
       counts[value] = (counts[value] || 0) + 1;
     });
 
     const sanitizedBet = sanitizeBet(bet);
-
     let win = 0;
 
-    if (Object.values(counts).some((count) => count === 4)) {
+    if (Object.values(counts).some((count) => count === REELS_COUNT)) {
       win = sanitizedBet * 10;
-    } else if (Object.values(counts).some((count) => count === 3)) {
+    } else if (Object.values(counts).some((count) => count === REELS_COUNT - 1)) {
       win = sanitizedBet * 5;
-    } else {
-      const hasAdjacentPair = finalReels.some(
-        (value, index) => index < finalReels.length - 1 && value === finalReels[index + 1],
-      );
-      if (hasAdjacentPair) win = sanitizedBet * 2;
+    } else if (
+      finalReels.some((value, index) => index < finalReels.length - 1 && value === finalReels[index + 1])
+    ) {
+      win = sanitizedBet * 2;
     }
+
     if (win > 0) {
       setBalance((prev) => prev + win);
       setModal({ type: 'win', amount: win });
     } else {
       setModal({ type: 'lose', amount: sanitizedBet });
     }
-    window.setTimeout(() => clearModal(), 2500);
+
+    window.setTimeout(clearModal, 2500);
   };
 
   const spin = () => {
     if (spinning) return;
 
-    const sanitizedBet = sanitizeBet(bet);
+    clearIntervals();
 
-    if (sanitizedBet > balance) return;
+    const sanitizedBet = sanitizeBet(bet);
+    if (sanitizedBet < 1 || sanitizedBet > balance) return;
 
     setBalance((prev) => prev - sanitizedBet);
     setSpinning(true);
 
-    const symbolsCount = 4;
-    const speed = 90;
-    const delays = [1200, 1600, 2000, 2400];
-
-    intervalsRef.current.forEach((id) => clearInterval(id));
-    intervalsRef.current = [];
-
     const current = [...reelIndexes];
+    const finalReels = [...current];
 
-    for (let index = 0; index < 4; index++) {
+    for (let index = 0; index < REELS_COUNT; index++) {
       let idx = current[index];
 
-      const id = window.setInterval(() => {
-        idx = (idx + 1) % symbolsCount;
+      const intervalId = window.setInterval(() => {
+        idx = (idx + 1) % SYMBOLS_COUNT;
 
         setReelIndexes((prev) => {
           const next = [...prev];
           next[index] = idx;
           return next;
         });
-      }, speed);
-      intervalsRef.current[index] = id;
+      }, SPIN_SPEED_MS);
+
+      intervalsRef.current[index] = intervalId;
 
       window.setTimeout(() => {
-        clearInterval(id);
+        clearInterval(intervalId);
 
-        const finalIndex = Math.floor(Math.random() * symbolsCount);
+        const finalIndex = Math.floor(Math.random() * SYMBOLS_COUNT);
+        finalReels[index] = finalIndex;
 
         setReelIndexes((prev) => {
           const next = [...prev];
@@ -95,10 +100,10 @@ export default function useSlotsSpin() {
           return next;
         });
 
-        if (index === 3) {
-          window.setTimeout(() => finalizePayout(useSlotsStore.getState().reelIndexes), 120);
+        if (index === REELS_COUNT - 1) {
+          finalizePayout(finalReels);
         }
-      }, delays[index]);
+      }, REEL_DELAYS_MS[index]);
     }
   };
 

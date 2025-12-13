@@ -6,7 +6,7 @@ import { blushConfig, bodyPartsConfig, faceConfig } from '@/shared/constants/slo
 
 import styles from './SlotsMachine.module.scss';
 import handleSupportImg from '../../assets/graphics/slots-game/handle-support-1.svg';
-import handleDizactiveImg from '../../assets/graphics/slots-game/handle-turnOff.svg';
+import handleInactiveImg from '../../assets/graphics/slots-game/handle-turnOff.svg';
 import handleActiveImg from '../../assets/graphics/slots-game/handle-turnOn.svg';
 import cherryImg from '../../assets/icons/cherry.svg';
 import diamondImg from '../../assets/icons/diamond.svg';
@@ -63,8 +63,8 @@ export default function SlotsMachine({ reelIndexes, spinning }: SlotsMachineProp
           />
         ) : (
           <Image
-            className={styles.handleDizactive}
-            src={handleDizactiveImg}
+            className={styles.handleInactive}
+            src={handleInactiveImg}
             width={30}
             height={120}
             alt="handle"

@@ -1,14 +1,15 @@
 'use client';
+import { STORAGE_KEY } from '@/shared/constants/slots-game';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
 type SlotsState = {
   balance: number;
-  bet: number;
+  bet: number | null;
   reelIndexes: number[];
   spinning: boolean;
   setBalance: (balance: number | ((prev: number) => number)) => void;
-  setBet: (bet: number) => void;
+  setBet: (bet: number | null) => void;
   setReelIndexes: (indexes: number[] | ((prev: number[]) => number[])) => void;
   setSpinning: (spinning: boolean) => void;
   topUp: (amount: number) => void;
@@ -21,7 +22,7 @@ export const useSlotsStore = create<SlotsState>()(
   persist(
     (set) => ({
       balance: 1000,
-      bet: 10,
+      bet: null,
       reelIndexes: [0, 0, 0, 0],
       spinning: false,
       modal: { type: null, amount: 0 },
@@ -41,7 +42,7 @@ export const useSlotsStore = create<SlotsState>()(
       clearModal: () => set(() => ({ modal: { type: null, amount: 0 } })),
     }),
     {
-      name: 'tokyo-slots-storage',
+      name: STORAGE_KEY,
       partialize: (state) => ({
         balance: state.balance,
         bet: state.bet,
