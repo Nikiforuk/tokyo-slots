@@ -1,0 +1,270 @@
+@use '@/shared/styles/variables' as *;
+@use '@/shared/styles/extends' as *;
+@use '@/shared/styles/mixins' as *;
+
+.container {
+  @include flex($align: center, $justify: center);
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.bg {
+  position: relative;
+  height: 262px;
+  overflow: visible;
+  margin-bottom: 20px;
+  z-index: 999;
+}
+
+.base {
+  @include flex($align: center, $justify: center);
+  @include size($w: 427px, $h: 226px);
+  background: $blue-bright;
+  border-radius: 30px;
+
+  &::after {
+    @include size($w: 427px, $h: 234px);
+    content: '';
+    border: 5px solid $black;
+    position: absolute;
+    border-radius: 35px;
+    background: $blue-sky;
+    z-index: -1;
+  }
+}
+
+.reels {
+  @include flex($align: center, $justify: space-between);
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 10px;
+}
+
+.reelWindow {
+  @include flex($align: center, $justify: center);
+  @include size($w: 80px, $h: 142px);
+  background: $white-light;
+  border: 3px solid $black-dark;
+  border-radius: 11px;
+}
+
+.eyeLeft {
+  position: absolute;
+  left: 58px;
+  top: -25px;
+  pointer-events: none;
+}
+
+.eyeRight {
+  position: absolute;
+  right: 62px;
+  top: -25px;
+  pointer-events: none;
+}
+
+.smile {
+  position: absolute;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.emotionLeft {
+  position: absolute;
+  left: 78px;
+  top: 25px;
+  pointer-events: none;
+}
+
+.emotionRight {
+  position: absolute;
+  right: 83px;
+  top: 25px;
+  pointer-events: none;
+}
+
+.handleSupport {
+  position: absolute;
+  top: 57px;
+  right: -27px;
+}
+
+.handleActive {
+  position: absolute;
+  top: 86px;
+  right: -54px;
+}
+
+.handleInactive {
+  position: absolute;
+  top: 25px;
+  right: -54px;
+}
+
+.handLeft {
+  position: absolute;
+  left: -10px;
+  top: 175px;
+}
+
+.handRight {
+  position: absolute;
+  right: -10px;
+  top: 175px;
+}
+
+.foots {
+  position: absolute;
+  left: 10%;
+  bottom: -8px;
+}
+
+
+@media (max-width: 600px) {
+  .base {
+    width: 320px;
+    height: 175px;
+
+    &::after {
+      width: 320px;
+      height: 178px;
+    }
+  }
+
+  .reelWindow {
+    width: 57px;
+    height: 100px;
+  }
+
+  .reels {
+    gap: 7px;
+    top: 50px;
+  }
+
+  .reelIcons {
+    width: 50px;
+    height: 50px;
+  }
+
+  .handleSupport {
+    top: 50px;
+    right: -25px;
+    height: 80px;
+  }
+
+  .handleActive {
+    right: -45px;
+    height: 80px;
+  }
+
+  .handleDizactive {
+    right: -45px;
+    height: 80px;
+  }
+
+  .handLeft {
+    left: -10px;
+    top: 140px;
+  }
+
+  .handRight {
+    position: absolute;
+    right: -10px;
+    top: 140px;
+  }
+
+  .foots {
+    left: -2%;
+    bottom: 44px;
+  }
+}
+
+@media (max-width: 420px) {
+  .base {
+    width: 280px;
+    height: 155px;
+
+    &::after {
+      width: 280px;
+      height: 158px;
+    }
+  }
+
+  .bg {
+    height: 240px;
+  }
+
+  .reelWindow {
+    width: 50px;
+    height: 90px;
+  }
+
+  .reels {
+    gap: 12px;
+    top: 50px;
+  }
+
+  .reelIcons {
+    width: 40px;
+    height: 40px;
+  }
+
+  .eyeLeft {
+    left: 50px;
+    top: -25px;
+  }
+
+  .eyeRight {
+    right: 50px;
+    top: -25px;
+  }
+
+  .emotionLeft {
+    position: absolute;
+    left: 29px;
+    top: 25px;
+    pointer-events: none;
+  }
+
+  .emotionRight {
+    position: absolute;
+    right: 20px;
+    top: 25px;
+    pointer-events: none;
+  }
+
+  .handleSupport {
+    top: 50px;
+    right: -25px;
+    height: 70px;
+  }
+
+  .handleActive {
+    top: 70px;
+    right: -40px;
+    height: 70px;
+  }
+
+  .handleDizactive {
+    right: -40px;
+    height: 75px;
+  }
+
+  .handLeft {
+    left: -9px;
+    top: 130px;
+  }
+
+  .handRight {
+    position: absolute;
+    right: -10px;
+    top: 130px;
+  }
+
+  .foots {
+    left: -11%;
+  }
+}

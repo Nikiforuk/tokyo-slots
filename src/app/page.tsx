@@ -1,10 +1,9 @@
-import styles from './page.module.scss';
+import Slots from '@/features/slots-game/Slots';
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <main className={styles.content}>
-      </main>
-    </div>
+    <section>
+      <Slots />
+    </section>
   );
 }

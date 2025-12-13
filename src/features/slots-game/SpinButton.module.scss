@@ -1,0 +1,47 @@
+@use '@/shared/styles/variables' as *;
+@use '@/shared/styles/extends' as *;
+@use '@/shared/styles/mixins' as *;
+
+.container {
+  @include flex($align: center, $justify: center, $direction: column);
+  z-index: 2000;
+  background: none;
+}
+
+.button {
+  @include size($w: 250px, $h: 140px);
+  position: absolute;
+  border: none;
+  background: transparent;
+  bottom: 225px;
+  padding: 0;
+  cursor: pointer;
+  z-index: 500;
+}
+
+.border1 {
+  position: absolute;
+  left: 50%;
+  top: -3px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 500;
+}
+
+.border2 {
+  position: absolute;
+  left: 50%;
+  bottom: -31px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 500;
+}
+
+.capsuleWrap {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  display: inline-block;
+  z-index: 1001;
+}
+

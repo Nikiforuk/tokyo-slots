@@ -1,0 +1,17 @@
+@use '@/shared/styles/variables' as *;
+@use '@/shared/styles/extends' as *;
+@use '@/shared/styles/mixins' as *;
+
+.inputToken {
+  @include flex($align: center, $justify: center);
+  @include size($w: 24px, $h: 24px);
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: $red-bright;
+  border: 4px solid $black-dark;
+  box-sizing: content-box;
+  color: $red-dark;
+  font-family: $font-bungee;
+  font-size: 14px;
+  box-shadow: 0 4px 4px $black-dark;
+}

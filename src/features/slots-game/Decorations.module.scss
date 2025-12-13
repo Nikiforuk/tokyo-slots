@@ -1,0 +1,122 @@
+.crown {
+  position: absolute;
+  left: 20px;
+  top: 0%;
+  z-index: 800;
+}
+
+.coinSmile1 {
+  position: absolute;
+  left: 75px;
+  top: 15%;
+  z-index: 800;
+}
+
+.coinSmile2 {
+  position: absolute;
+  left: 50px;
+  top: 70%;
+  z-index: 1500;
+}
+
+.coinArrow1 {
+  position: absolute;
+  top: 5%;
+  right: -5;
+  z-index: 1000;
+}
+
+.coinArrow2 {
+  position: absolute;
+  top: 55%;
+  left: 30%;
+  z-index: 1000;
+}
+
+.diamond {
+  position: absolute;
+  top: 40%;
+  right: -12;
+  z-index: 1000;
+}
+
+.cherry {
+  position: absolute;
+  top: 55%;
+  left: 0;
+  z-index: 1000;
+}
+
+.seven1 {
+  position: absolute;
+  top: 80%;
+  left: 30%;
+  z-index: 1500;
+}
+
+.seven2 {
+  position: absolute;
+  top: 75%;
+  right: 20%;
+  z-index: 1;
+}
+
+.lemon {
+  position: absolute;
+  top: 75%;
+  right: 15%;
+  z-index: 1500;
+}
+
+@media (max-width: 600px) {
+  .crown {
+    left: 0px;
+    top: -5%;
+  }
+
+  .coinSmile1 {
+    left: 75px;
+    top: 18.5%;
+    z-index: 1000;
+  }
+
+  .coinSmile2 {
+    left: 1%;
+    top: 70%;
+    z-index: 1;
+  }
+
+  .coinArrow1 {
+    top: 5%;
+    right: 100px;
+  }
+
+  .coinArrow2 {
+    top:60%;
+    left: 75%;
+  }
+
+  .diamond {
+    top: 30%;
+    right: -12;
+    z-index: 1000;
+  }
+
+  .seven1 {
+    top: 70%;
+    left: 80%;
+  }
+
+  .seven2 {
+    top: 50%;
+    left: 25%;
+    z-index: 1000;
+  }
+
+  .lemon {
+    position: absolute;
+    top: 85%;
+    right: 15%;
+    z-index: 1000;
+  }
+}

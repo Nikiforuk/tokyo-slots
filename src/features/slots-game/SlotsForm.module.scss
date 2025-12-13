@@ -1,0 +1,28 @@
+@use '@/shared/styles/variables' as *;
+@use '@/shared/styles/extends' as *;
+@use '@/shared/styles/mixins' as *;
+
+.container {
+  @include flex($align: center, $justify: center, $direction: column);
+}
+
+.label {
+  @extend %bungee-14;
+  @include text-stroke(1.5px, #000000);
+  paint-order: stroke fill;
+  text-shadow: 0 5px 0 rgba(0, 0, 0, 0.1);
+  color: $primary;
+  margin-bottom: 25px;
+  z-index: 999;
+}
+
+.flexBox {
+  @include flex($align: center, $justify: center, $direction: column);
+  gap: 12.5px;
+  z-index: 999;
+}
+
+.elements {
+  @include flex($align: center, $justify: center);
+  gap: 12.5px;
+}

@@ -1,0 +1,20 @@
+@use '@/shared/styles/variables' as *;
+@use '@/shared/styles/extends' as *;
+@use '@/shared/styles/mixins' as *;
+
+.button {
+  @include flex($align: center, $justify: center);
+  @include size($w: 50px, $h: 50px);
+  border-radius: 50%;
+  border: none;
+  background: none;
+  cursor: pointer;
+  perspective: 600px;
+  z-index: 1500;
+}
+
+.secondIcon {
+  position: absolute;
+  top: 13;
+  left: 17px;
+}

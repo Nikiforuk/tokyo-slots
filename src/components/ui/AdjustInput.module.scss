@@ -1,0 +1,36 @@
+@use '@/shared/styles/variables' as *;
+@use '@/shared/styles/extends' as *;
+@use '@/shared/styles/mixins' as *;
+
+.wrapper {
+  position: relative;
+  @include size($w: 200px, $h: 62px);
+}
+
+.input {
+  @extend %bungee-20;
+  @include size($w: 100%, $h: 100%);
+  padding: 20px 17px 20px 50px;
+  border: 3px solid $black-dark;
+  border-radius: 16px;
+  outline: none;
+  background: $dusty-tape;
+  color: $white;
+  box-shadow: inset 0 5px 0 $smoked-taupe;
+  text-shadow: 0 4px 4px $black;
+}
+
+.input::placeholder {
+  color: $white;
+  opacity: 0.8;
+}
+
+.forwardShadow {
+  @include size($w: 100%, $h: 100%);
+  position: absolute;
+  left: 0;
+  top: -7;
+  border-radius: 16px;
+  background: $iron-taupe;
+  z-index: -1;
+}

@@ -9,11 +9,13 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "next": "16.0.6",
+    "framer-motion": "^12.23.25",
+    "next": "^16.0.8",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "sass": "^1.94.2",
-    "scss": "^0.2.4"
+    "scss": "^0.2.4",
+    "zustand": "^5.0.9"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -21,6 +23,9 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.0.6",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-prettier": "^5.5.4",
     "typescript": "^5"
   }
 }

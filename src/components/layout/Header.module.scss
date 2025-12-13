@@ -1,0 +1,40 @@
+@use '@/shared/styles/variables' as *;
+@use '@/shared/styles/extends' as *;
+@use '@/shared/styles/mixins' as *;
+
+.container {
+  @include flex($align: _, $justify: center);
+  @include size($w: 100%, $h: clamp(85px, 8vh, 130px));
+  position: relative;
+  overflow: visible;
+  height: 85px;
+  margin-bottom: 90px;
+}
+
+.cloud {
+  position: absolute;
+  inset: 0;
+  background: url('../../assets/graphics/cloud-top.svg') repeat-x center bottom;
+  background-size: auto clamp(85px, 8vh, 130px);
+}
+
+.table {
+  position: absolute;
+  bottom: -40px;
+  transform: translate(-50%, 50%);
+  display: inline-block;
+  z-index: 999;
+
+  &_title {
+    @include text-stroke(5px, $black-dark);
+    @extend %pocket-monk-40;
+    font-family: var(--font-pocket-monk);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-55%);
+    paint-order: stroke fill;
+    text-shadow: 0 4px 4px $black;
+  }
+}

@@ -1,0 +1,70 @@
+@use '@/shared/styles/variables' as *;
+@use '@/shared/styles/extends' as *;
+@use '@/shared/styles/mixins' as *;
+
+.container {
+  @include flex($align: center, $justify: space-between, $direction: column);
+  min-height: 100svh;
+  position: relative;
+}
+
+.bg {
+  @include flex($align: center, $justify: center, $direction: column);
+  width: 600px;
+  padding: 16px;
+  overflow-x: hidden;
+}
+
+.cloudGreenBackground {
+  @include size($w: 100%, $h: 550px);
+  position: absolute;
+  bottom: 0px;
+  background: url('../../assets/images/cloud-green.png') no-repeat center bottom;
+  background-size: cover;
+  z-index: -1;
+}
+
+.cloudWhiteBackground {
+  @include size($w: 100%, $h: 300px);
+  position: absolute;
+  bottom: 0;
+  background: url('../../assets/images/cloud-2.png') no-repeat center bottom;
+  background-size: cover;
+  z-index: 1000;
+}
+
+.cloudLeft {
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  height: auto;
+  width: 50%; 
+  aspect-ratio: 1 / 0.45;
+  background: url('../../assets/images/cloud-1.png') no-repeat left bottom;
+  background-size: contain;
+  z-index: 1;
+}
+
+.cloudRight {
+  position: absolute;
+  right: 0;
+  bottom: 50px;
+  width: 50%; 
+  height: auto;
+  aspect-ratio: 1 / 0.45;
+  background: url('../../assets/images/cloud-3.png') no-repeat right bottom;
+  background-size: contain;
+  z-index: 1;
+}
+
+.city {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 0.17;
+  background: url('../../assets/images/tokiocity.png') no-repeat center bottom;
+  background-size: cover;
+  position: absolute;
+  bottom: 150px;
+  right: 0;
+  z-index: -1;
+}

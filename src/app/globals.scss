@@ -1,15 +1,16 @@
-@import '../styles/variables';
+@use '@/shared/styles/variables' as *;
+@use '@/shared/styles/extends' as *;
+@use '@/shared/styles/mixins' as *;
 
 html,
 body {
-  max-width: 100vw;
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 body {
   color: $blue-bright;
   background: $background;
-  font-family: $font-pocket-monk;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -25,4 +26,3 @@ a {
   color: inherit;
   text-decoration: none;
 }
-

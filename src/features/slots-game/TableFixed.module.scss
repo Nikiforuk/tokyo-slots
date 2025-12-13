@@ -1,0 +1,50 @@
+@use '@/shared/styles/variables' as *;
+@use '@/shared/styles/extends' as *;
+@use '@/shared/styles/mixins' as *;
+
+.container {
+  @include flex($align: center, $justify: center);
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  z-index: 1001;
+
+  &_title {
+    @include text-stroke(10px, $black-dark);
+    @extend %poetsen-55;
+    position: absolute;
+    paint-order: stroke fill;
+    transform: translateX(-50%);
+    top: -20px;
+    color: $yellow-bright;
+    text-shadow: 0 4px 4px $black;
+    white-space: nowrap;
+  }
+
+  &_sum {
+    position: absolute;
+    @include text-stroke(2px, $black-dark);
+    @extend %bungee-30-right;
+    color: $white;
+    top: 50px;
+    right: 45%;
+    transform: translateX(50%);
+    white-space: nowrap;
+  }
+
+  &_shine {
+    position: absolute;
+    top: -8px;
+
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: $gradient-gloss;
+    filter: blur(12px);
+    opacity: 0.4;
+    pointer-events: none;
+    overflow: hidden;
+  }
+}

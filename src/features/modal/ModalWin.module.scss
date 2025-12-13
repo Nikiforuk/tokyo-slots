@@ -1,0 +1,50 @@
+@use '@/shared/styles/variables' as *;
+@use '@/shared/styles/extends' as *;
+@use '@/shared/styles/mixins' as *;
+
+.overlay {
+  @include flex($align: center, $justify: center);
+  @include size($w: 100%, $h: 100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(165, 223, 247, 0.8);
+  z-index: 3000;
+}
+
+.container {
+  @include flex($align: center, $justify: center);
+  @include size($w: 302px, $h: 136px);
+  position: relative;
+  transform: translateX(50% 50%);
+  z-index: 1001;
+  bottom: 50px
+}
+
+.title {
+  @extend %pocket-monk-45;
+  @include text-stroke(10px, $black-dark);
+  font-family: var(--font-pocket-monk);
+  position: absolute;
+  top: 10;
+  left: 40px;
+  paint-order: stroke fill;
+  transform: rotate(-10deg);
+  text-shadow: 0 8px 10px $black;
+}
+
+.happyFace {
+  position: absolute;
+  top: 0;
+  right: 20;
+}
+
+.sumWin {
+  @extend %bungee-22;
+  @include text-stroke(5px, rgba(81, 82, 26, 0.2));
+  position: absolute;
+  top: 57%;
+  left: 30%;
+  paint-order: stroke fill;
+  color: $dark-space;
+}
